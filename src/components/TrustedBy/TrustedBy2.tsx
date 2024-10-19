@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 
 
-import Image from 'next/image'
+// import Image from 'next/image'
 
 export default function TrustedBy2() {
 
@@ -18,7 +19,7 @@ export default function TrustedBy2() {
     <section className="text-center py-12 relative">
       <div className="absolute opacity-40 mix-blend-color-dodge pointer-events-none">
         <div className="absolute -translate-y-[10%] translate-x-[90%] size-[18.85rem] lg:size-[68.85rem]">
-          <Image className="w-full rotate-[180deg] opacity-100" src="/gradient.png" width={942} height={942} alt="" />
+          <img className="w-full rotate-[180deg] opacity-100" src="/gradient.png" width={942} height={942} alt="" />
         </div>
       </div>
       <div className="container mx-auto px-4">
@@ -29,7 +30,7 @@ export default function TrustedBy2() {
         <div className="flex justify-evenly mx-auto items-center ">
         {logos.map((logo) => (
             <div key={logo.id} className="relative px-4">
-              <Image
+              <img
                 src={logo.src}
                 alt={logo.alt}
                 width={250}
@@ -52,7 +53,6 @@ export default function TrustedBy2() {
         </div>
       </div>
     </section>
-   
   
   )
 }
