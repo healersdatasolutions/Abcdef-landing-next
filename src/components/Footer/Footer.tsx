@@ -17,11 +17,11 @@ const Footer = () => {
                 <a href="/#" className="mb-2 inline-block max-w-[160px]">
                   <Image src="/HealersHealthcareOfficialLogo 1.png" alt="Healers Healthcare" width={150} height={150} />
                 </a>
-                <p className="flex items-center text-sm font-medium text-dark dark:text-white">
-                  <span className="flex items-center gap-2">
                     <MailIcon className="text-black dark:text-white"/>
+                <p className="flex items-center text-sm font-medium text-dark dark:text-white">
+          
                     @ healershealthcare.in
-                  </span>
+                
                 </p>
               </div>
             </div>
@@ -107,16 +107,17 @@ const Footer = () => {
                     </svg>
                   </a>
                 </div>
-                <p className="text-sm text-body-color dark:text-dark-6">
-                  &copy; 2025 Healers Healthcare. All rights reserved.
-                  <div className="text-red-600 style-none my-2 list-unstyled">
-
-                <Link href="/account-action">
-                Account Deletion Request
-                </Link>
-                
+                <div>
+                  <p className="text-sm text-body-color dark:text-dark-6">
+                    &copy; 2025 Healers Healthcare. All rights reserved.
+                  </p>
+                  <div className="text-red-600 text-sm style-none my-2 list-unstyled">
+                    <Link href="/account-action">
+                      Account Deletion Request
+                    </Link>
+                  </div>
                 </div>
-                </p>
+                
               </div>
             </div>
           </div>

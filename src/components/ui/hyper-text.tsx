@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 
 import { cn } from "@/lib/utils";
+import React from "react";
 
 interface HyperTextProps {
   text: string;
@@ -19,7 +20,7 @@ const getRandomInt = (max: number) => Math.floor(Math.random() * max);
 
 export default function HyperText({
   text,
-  duration = 600,
+  duration = 800,
   framerProps = {
     initial: { opacity: 0, y: -10 },
     animate: { opacity: 1, y: 0 },
@@ -70,17 +71,17 @@ export default function HyperText({
 
   return (
     <div
-      className="overflow-hidden py-2  flex cursor-default scale-100"
+      className="overflow-hidden py-2 flex cursor-default scale-100"
       onMouseEnter={triggerAnimation}
     >
       <AnimatePresence mode="sync">
         {displayText.map((letter, i) => (
           <motion.h1
             key={i}
-            className={cn(" ", letter === " " ? "w-1" : "", className)}
+            className={cn("font-mono", letter === " " ? "w-3" : "", className)}
             {...framerProps}
           >
-            {letter}
+            {letter.toUpperCase()}
           </motion.h1>
         ))}
       </AnimatePresence>
