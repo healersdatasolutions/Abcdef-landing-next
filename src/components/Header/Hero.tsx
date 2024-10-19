@@ -17,33 +17,9 @@ import {
   } from "@/components/ui/tooltip"
 import { BackgroundParallaxImg, MedicalRoom, StatsCard } from "./StatsCard";
 import { Button } from "../ui/button";
+import Section from "./Section";
 
-interface SectionProps {
-    className?: string;
-    id?: string;
-    crosses?: string;
-    crossesOffset?: string;
-    customPaddings?: string;
-    children: React.ReactNode;
-}
 
-const Section: React.FC<SectionProps> = ({ className, id, crosses, crossesOffset, customPaddings, children }) => {
-    return (
-        <div id={id} className={`relative ${customPaddings || `py-4 lg:py-8 xl:py-12 ${crosses ? "lg:py-16 xl:py-20" : ""}`} ${className || ""}`}>
-            {children}
-
-            {/* <div className="hidden absolute top-0 left-5 w-0.25 h-full bg-[#26242C] pointer-events-none md:block lg:left-7.5 xl:left-10" /> */}
-            {/* <div className="hidden absolute top-0 right-5 w-0.25 h-full bg-[#26242C] pointer-events-none md:block lg:right-7.5 xl:right-10" /> */}
-
-            {crosses && (
-                <>
-                    <div className={`hidden absolute top-0 left-7.5 right-7.5 h-0.25 bg-[#26242C] ${crossesOffset && crossesOffset} pointer-events-none lg:block xl:left-10 right-10`} />
-                    {/* <SectionSvg crossesOffset={crossesOffset} /> */}
-                </>
-            )}
-        </div>
-    );
-};
 
 
 const Hero = () => {
@@ -78,7 +54,7 @@ const Hero = () => {
                                     <div className="subSubContainer flex flex-col  md:-mt-48 lg:-mt-0 lg:self-center justify-start sm:justify-center items-center lg:items-start  h-[20rem] pt-[10rem] sm:pt-[0]  ">
                                         <div className="HeroTitle flex flex-col ">
                                             <WordRotate
-                                                className="text-4xl font-bold text-black dark:text-[#c4c3c3] text-wrap text-center lg:text-left lg:pr-10"
+                                                className="text-4xl font-semibold text-black dark:text-[#c4c3c3] text-wrap text-center lg:text-left lg:pr-10"
                                                 sentences={[
                                                     "Simplifying Appointments, Revolutionizing Healthcare",
                                                     "Bridging the Gap Between Patients and Hospitals",
