@@ -28,17 +28,17 @@ import {
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Hospitals",
-    href: "clients",
+    href: "#clients",
     description: "Hospitals Onboarded With Us",
   },
   {
     title: "AI Patient Response",
-    href: "features",
+    href: "#features",
     description: "AI which can suggest the best possible response to the patient's queries.",
   },
   {
     title: "Progress",
-    href: "bentotwo",
+    href: "#bentotwo",
     description: "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
   },
   {
@@ -169,7 +169,7 @@ export function NavigationMenuNew() {
                     <div className="flex flex-col gap-2">
                       {components.map((component) => (
                         component.title !== "Privacy Policy" && (
-                          <Link key={component.title} href={`#${component.href}`}>
+                          <Link key={component.title} href={`${component.href}`}>
                             {component.title}
                           </Link>
                         )

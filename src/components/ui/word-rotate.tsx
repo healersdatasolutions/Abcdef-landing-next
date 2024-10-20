@@ -1,6 +1,6 @@
 "use client"
 
-import React,{ useEffect, useState, useRef } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 
@@ -56,7 +56,7 @@ export default function WordRotate({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-wrap"
+          className="flex flex-wrap justify-center lg:justify-start"
         >
           {currentSentence.map((word, index) => (
             <motion.span

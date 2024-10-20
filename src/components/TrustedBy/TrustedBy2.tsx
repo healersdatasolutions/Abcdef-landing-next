@@ -16,8 +16,8 @@ export default function TrustedBy2() {
   return (
    
 
-    <section className="text-center py-12 relative">
-      <div className="absolute opacity-40 mix-blend-color-dodge pointer-events-none">
+    <section className="text-center py-12 relative mt-56 sm:mt-[36rem] md:mt-0">
+      <div className="absolute opacity-40 mix-blend-color-dodge pointer-events-none ">
         <div className="absolute -translate-y-[10%] translate-x-[90%] size-[18.85rem] lg:size-[68.85rem]">
           <img className="w-full rotate-[180deg] opacity-100" src="/gradient.png" width={942} height={942} alt="" />
         </div>

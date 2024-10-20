@@ -53,14 +53,14 @@ const Hero = () => {
                                 <div className="HeroTitleAndSubTitle  w-full grid grid-cols-1 lg:grid-cols-2  ">
                                     <div className="subSubContainer flex flex-col  md:-mt-48 lg:-mt-0 lg:self-center justify-start sm:justify-center items-center lg:items-start  h-[20rem] pt-[10rem] sm:pt-[0]  ">
                                         <div className="HeroTitle flex flex-col ">
-                                            <WordRotate
-                                                className="text-4xl font-semibold text-black dark:text-[#c4c3c3] text-wrap text-center lg:text-left lg:pr-10"
-                                                sentences={[
-                                                    "Simplifying Appointments, Revolutionizing Healthcare",
-                                                    "Bridging the Gap Between Patients and Hospitals",
-                                                    "Where Technology Meets Compassionate Care"
-                                                ]}
-                                            />
+                                        <WordRotate
+  className="text-2xl md:text-4xl xl:text-5xl font-semibold text-black dark:text-[#c4c3c3] text-wrap text-center lg:text-left lg:pr-10 "
+  sentences={[
+    "Simplifying Appointments, Revolutionizing Healthcare",
+    "Bridging the Gap Between Patients and Hospitals",
+    "Where Technology Meets Compassionate Care"
+  ]}
+/>
                                         </div>
 
                                         <div className="subtext w-[75%] text-center lg:text-left" >

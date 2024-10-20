@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent,CarouselNext,CarouselPrevious, CarouselItem } from "@/components/ui/carousel"
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
-import Image from "next/image"
+// import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
 // Sample hospital data
@@ -23,9 +23,14 @@ export default function HospitalCarousel() {
 
   return (
     <div className=" relative">
-      <div className="absolute opacity-40 mix-blend-color-dodge pointer-events-none">
+      <div className="absolute opacity-40 mix-blend-color-dodge pointer-events-none ">
         <div className="absolute -translate-y-[20%] translate-x-[90%] size-[18.85rem] lg:size-[68.85rem]">
-          <Image className="w-full rotate-[180deg] opacity-100" src="/gradient.png" width={942} height={942} alt="" />
+          <img className="w-full rotate-[180deg] opacity-100" src="/gradient.png" width={942} height={942} alt="" />
+        </div>
+      </div>
+      <div className="absolute opacity-60 mix-blend-color-dodge pointer-events-none">
+        <div className="absolute translate-y-[20%] -translate-x-[60%] size-[18.85rem] lg:size-[68.85rem]">
+          <img className="w-full rotate-[100deg] opacity-100" src="/gradient.png" width={942} height={942} alt="" />
         </div>
       </div>
       <h2 id="clients" className="mt-36 mb-10 z-10 text-center text-3xl sm:text-5xl font-medium tracking-tighter text-black dark:text-white">
