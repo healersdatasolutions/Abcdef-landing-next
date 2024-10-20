@@ -10,7 +10,7 @@ export function ContactUs() {
     <div className="relative">
       <div className="absolute opacity-70 mix-blend-color-dodge pointer-events-none">
         <div className="absolute -translate-y-[20%] translate-x-[20%]  size-[18.85rem] lg:size-[48.85rem] animate-blob2">
-          <Image className="w-full opacity-100 rotate-[66deg]" src="/gradient2.png" width={942} height={942} alt="" />
+          <Image className="w-full opacity-100 rotate-[66deg]" src="/gradient.png" width={942} height={942} alt="" />
         </div>
       </div>
 <p

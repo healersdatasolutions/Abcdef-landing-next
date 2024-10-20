@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <>
       {/* <TextHoverEffect text="Healers" /> */}
-      <footer className="relative z-10 bg-white dark:bg-gradient-to-b from-[#01080f] to-black pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px] rounded-lg">
+      <footer className="relative z-10 bg-white dark:bg-gradient-to-b from-[#040c13] to-black pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px] rounded-lg">
         <div className="container">
           <div className="-mx-4 flex justify-between flex-wrap text-center sm:text-left">
             <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
@@ -34,14 +34,14 @@ const Footer = () => {
                   Contact & Support
                   </ScrollTo>
                 </ul>
-                <NavLink link="/#" label="Privacy Policy" />
+                <NavLink link="/privacy-policy" label="Privacy Policy" />
               </div>
             </LinkGroup>
             
             <LinkGroup header="Quick Links">
               <div className="flex flex-col gap-3">
                 <ul>
-                <ScrollTo to="Features1" >
+                <ScrollTo to="features" >
 
                   <li>Our Features</li>
                 </ScrollTo>
