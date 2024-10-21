@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-require-imports */
-import { blob } from "stream/consumers";
+// import { blob } from "stream/consumers";
 import type { Config } from "tailwindcss"
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
