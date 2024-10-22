@@ -35,7 +35,7 @@ const Hero = () => {
                     </div>
 
                     <div className="subContainer" >
-                        <div className="absolute top-[30.25rem] -right-[20.375rem] w-[56.625rem] opacity-60 mix-blend-color-dodge pointer-events-none">
+                        <div className=" hidden sm:block absolute top-[30.25rem] -right-[20.375rem] w-[56.625rem] opacity-60 mix-blend-color-dodge pointer-events-none">
                             <div className="absolute top-1/2 left-1/2 w-[58.85rem] h-[58.85rem] -translate-x-3/4 -translate-y-1/2">
                                 <Image className="w-full" src="/gradient.png" width={942} height={942} alt="" />
                             </div>

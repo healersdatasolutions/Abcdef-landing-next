@@ -53,7 +53,9 @@ export default function HospitalCarousel() {
           <CarouselContent >
             {hospitals.map((hospital) => (
               <CarouselItem key={hospital.id} className="w-full ">
-                <Card className="border-none rounded-lg shadow-none ">
+                <Card className=" h-full bg-[url('/gradient10.png')] object-contain  bg-opacity-100 backdrop:blur-sm  border-none rounded-lg shadow-none "
+                
+                >
                   <CardContent className="flex flex-col md:flex-row items-stretch rounded-lg p-8  sticky   overflow-hidden">
                     <div className="w-full md:w-1/2 h-64 md:h-80">
                       <img

@@ -15,7 +15,7 @@ export default function MobileAppSection() {
       >
         Download Our Mobile App
       </p>
-      <div className="max-w-6xl bg-black py-8 rounded-lg mx-5 sm:mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl h-full bg-[url('/gradient10.png')] object-contain  bg-opacity-100 backdrop:blur-sm  py-8 rounded-lg mx-5 sm:mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-around">
           <div className="w-full lg:w-1/2 mb-10 lg:mb-0 lg:ml-10">
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
