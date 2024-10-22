@@ -22,18 +22,18 @@ const VideoCard = ({ video }: { video: Video; index: number }) => {
     className="mb-12" 
     >
 
-      <Card className="  bg-[url('/gradient6.png')]  bg-opacity-100 backdrop:blur-sm bg-repeat object-contain overflow-hidden bg-transparent shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <Card className="  bg-[url('/gradient10.png')]  bg-opacity-100 backdrop:blur-sm bg-repeat object-contain overflow-hidden bg-transparent shadow-lg hover:shadow-xl transition-shadow duration-300">
       {/* <BackgroundGradientAnimation className=""> */}
         <CardContent className="p-0 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2  gap-6 h-auto md:h-[400px]">
-            <div className="p-10 flex flex-col gap-5 ">
+            <div className="p-10 flex justify-center flex-col gap-5 ">
               <h2 className="text-3xl font-bold mb-4 text-primary flex items-center">
                 {/* <PlayCircle className="mr-3 text-black" size={32} /> */}
-                <span className="font-sans text-3xl text-white ">{video.title}</span>
+                <span className="font-sans font-normal text-3xl text-white ">{video.title}</span>
               </h2>
            
                {/* <Info className="mr-3 mt-1 flex-shrink-0 text-black" size={24} /> */}
-                <h2 className="text-white/70 text-xl text-justify  font-sans">{video.description}</h2>
+                <h2 className="text-white/70 text-base text-justify  font-sans">{video.description}</h2>
             
             </div>
             <div className="aspect-video self-center relative overflow-hidden lg:-translate-x-10 rounded-lg ">

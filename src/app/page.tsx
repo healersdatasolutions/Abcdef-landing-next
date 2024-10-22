@@ -24,8 +24,11 @@ export default function Home() {
 
         <NavigationMenuNew />
         {/* <Header /> */}
+        <div className="relative z-20">
+
         <Hero />
-    <div className={`${sora.className} min-h-screen w-full relative z-10  h-full bg-[url('/gradient8.png')]  bg-opacity-100 backdrop:blur-sm   text-white  overflow-hidden `}>
+        </div>
+    <div className={`${sora.className} min-h-screen max-w-[1536px] mx-auto relative z-10  h-full bg-[url('/gradient9.png')]  bg-opacity-100 backdrop:blur-sm   text-white  overflow-hidden mt-96 md:mt-0 lg:mt-0`}>
      
       <div className="relative z-10 min-h-screen h-full bg-[url('/noiseBg.png')]  bg-opacity-100 backdrop:blur-sm bg-repeat">
         <TrustedBy2 />
