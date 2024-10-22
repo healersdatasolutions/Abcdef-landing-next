@@ -116,7 +116,40 @@ const config = {
 			  blobAnimation2: {
 				'0%, 100%': { transform: 'translate(40, -0%) rotate(0deg)' },
 				'50%': { transform: 'translate(10%, -0%) rotate(180deg)' },
-			  }
+			  },
+			  moveHorizontal: {
+				"0%": {
+				  transform: "translateX(-50%) translateY(-10%)",
+				},
+				"50%": {
+				  transform: "translateX(50%) translateY(10%)",
+				},
+				"100%": {
+				  transform: "translateX(-50%) translateY(-10%)",
+				},
+			  },
+			  moveInCircle: {
+				"0%": {
+				  transform: "rotate(0deg)",
+				},
+				"50%": {
+				  transform: "rotate(180deg)",
+				},
+				"100%": {
+				  transform: "rotate(360deg)",
+				},
+			  },
+			  moveVertical: {
+				"0%": {
+				  transform: "translateY(-50%)",
+				},
+				"50%": {
+				  transform: "translateY(50%)",
+				},
+				"100%": {
+				  transform: "translateY(-50%)",
+				},
+			  },
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
@@ -124,6 +157,11 @@ const config = {
   			shine: 'shine var(--duration) infinite linear',
 			blob: 'blobAnimation 30s ease-in-out infinite',
 			blob2: 'blobAnimation2 30s ease-in-out infinite',
+			first: "moveVertical 30s ease infinite",
+        second: "moveInCircle 20s reverse infinite",
+        third: "moveInCircle 40s linear infinite",
+        fourth: "moveHorizontal 40s ease infinite",
+        fifth: "moveInCircle 20s ease infinite",
   		}
   	}
   },

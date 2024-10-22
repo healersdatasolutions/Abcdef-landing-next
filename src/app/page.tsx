@@ -25,7 +25,7 @@ export default function Home() {
         <NavigationMenuNew />
         {/* <Header /> */}
         <Hero />
-    <div className={`${sora.className} min-h-screen w-full bg-gradient-to-b from-[#000000] max-w-full via-[#041727] to-[#01080f]   text-white  overflow-hidden `}>
+    <div className={`${sora.className} min-h-screen w-full relative z-10  h-full bg-[url('/gradient8.png')]  bg-opacity-100 backdrop:blur-sm   text-white  overflow-hidden `}>
      
       <div className="relative z-10 min-h-screen h-full bg-[url('/noiseBg.png')]  bg-opacity-100 backdrop:blur-sm bg-repeat">
         <TrustedBy2 />
