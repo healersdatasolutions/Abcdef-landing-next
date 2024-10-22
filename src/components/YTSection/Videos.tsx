@@ -1,11 +1,10 @@
-'use client'
+// 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { motion, useInView, useAnimation } from 'framer-motion'
 import { Card, CardContent } from "@/components/ui/card"
-import { PlayCircle, Info } from "lucide-react"
+// import { PlayCircle, Info } from "lucide-react"
 import Image from 'next/image'
 import { videos } from './videoData'
+// import { BackgroundGradientAnimation } from "../ui/background-gradient-animation";
 
 interface Video {
   id: string;
@@ -13,48 +12,32 @@ interface Video {
   description: string;
 }
 
-const VideoCard = ({ video, index }: { video: Video; index: number }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: false, amount: 0.5 })
-  const controls = useAnimation()
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false)
+const VideoCard = ({ video }: { video: Video; index: number }) => {
+  
 
-  useEffect(() => {
-    if (isInView) {
-      controls.start('visible')
-      setIsVideoLoaded(true)
-    } else {
-      controls.start('hidden')
-    }
-  }, [isInView, controls])
-
+ 
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={controls}
-      variants={{
-        visible: { opacity: 1, y: 0 },
-        hidden: { opacity: 0, y: 50 }
-      }}
-      transition={{ duration: 0.5, delay: index * 0.2 }}
-      className="mb-12"
+    
+    <div
+    className="mb-12" 
     >
-      <Card className="overflow-hidden bg-black shadow-lg hover:shadow-xl transition-shadow duration-300">
+
+      <Card className="  bg-[url('/gradient6.png')]  bg-opacity-100 backdrop:blur-sm bg-repeat object-contain overflow-hidden bg-transparent shadow-lg hover:shadow-xl transition-shadow duration-300">
+      {/* <BackgroundGradientAnimation className=""> */}
         <CardContent className="p-0 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2  gap-6 h-auto md:h-[400px]">
-            <div className="p-8 flex flex-col justify-center">
-              <h3 className="text-2xl font-bold mb-4 text-primary flex items-center">
-                <PlayCircle className="mr-3 text-primary" size={32} />
-                <span className="font-poppins">{video.title}</span>
-              </h3>
-              <p className="text-muted-foreground flex items-start ">
-                <Info className="mr-3 mt-1 flex-shrink-0 text-secondary" size={24} />
-                <span>{video.description}</span>
-              </p>
+            <div className="p-10 flex flex-col gap-5 ">
+              <h2 className="text-3xl font-bold mb-4 text-primary flex items-center">
+                {/* <PlayCircle className="mr-3 text-black" size={32} /> */}
+                <span className="font-sans text-3xl text-white ">{video.title}</span>
+              </h2>
+           
+               {/* <Info className="mr-3 mt-1 flex-shrink-0 text-black" size={24} /> */}
+                <h2 className="text-white/70 text-xl text-justify  font-sans">{video.description}</h2>
+            
             </div>
             <div className="aspect-video self-center relative overflow-hidden lg:-translate-x-10 rounded-lg ">
-              {!isVideoLoaded && (
+              {/* {!isVideoLoaded && (
                 <Image
                   src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
                   alt={video.title}
@@ -62,8 +45,8 @@ const VideoCard = ({ video, index }: { video: Video; index: number }) => {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   style={{ objectFit: 'cover' }}
                 />
-              )}
-              {isVideoLoaded && (
+              )} */}
+             
                 <iframe
                   width="100%"
                   height="100%"
@@ -73,12 +56,13 @@ const VideoCard = ({ video, index }: { video: Video; index: number }) => {
                   allowFullScreen
                   className="absolute inset-0"
                 ></iframe>
-              )}
+              
             </div>
           </div>
         </CardContent>
+    {/* </BackgroundGradientAnimation> */}
       </Card>
-    </motion.div>
+    </div>
   )
 }
 
