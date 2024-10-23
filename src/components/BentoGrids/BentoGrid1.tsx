@@ -119,7 +119,7 @@ const SkeletonFive = () => {
   ]
 
   return (
-    <div className="w-full h-full overflow-hidden">
+    <div className="w-full h-48 overflow-hidden">
       
       <Marquee className="py-2" vertical pauseOnHover>
         
