@@ -1,61 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { cn } from "@/lib/utils";
+
 import React from "react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion} from "framer-motion";
 import { IconClipboardCopy, IconFileBroken, IconSignature, IconTableColumn, IconBoxAlignRightFilled, IconBrandInstagram } from "@tabler/icons-react";
 // import DotPattern from "./magicui/dot-pattern";
 import { InstagramEmbed } from 'react-social-media-embed';
 import ClientTweetCard from "../ui/client-tweet-card";
-
-interface FeatureBoxProps {
-  title: string;
-  description: string;
+import { CardStack } from "@/components/ui/card-stack";
+import { cn } from "@/lib/utils";
+import Marquee from "../ui/marquee";
+export function CardStackDemo() {
+  
 }
 
-const FeatureBox: React.FC<FeatureBoxProps> = ({ title, description }) => {
-  const colorChoice = ["bg-violet-600", "bg-blue-700", "bg-yellow-700"][Math.floor(Math.random() * 3)];
-  const [isHovered, setIsHovered] = React.useState(false);
 
-  return (
-    <motion.div
-      className={`${colorChoice} bg-opacity-10 border text-black dark:text-gray-300 border-gray-200 dark:border-violet-700 dark:hover:bg-violet-800 hover:dark:border-white text-center transition duration-300 rounded-lg p-2 w-full h-[5rem] flex flex-col justify-evenly items-center overflow-y-hidden`}
-      initial={{ y: 0 }}
-      whileHover={{ y: -10 }}
-      animate={{ y: 0 }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-    >
-      <AnimatePresence>
-        {!isHovered && (
-          <motion.h4
-            className="text font-semibold mb-1"
-            initial={{ y: 0 }}
-            exit={{ y: -50 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-          >
-            {title}
-          </motion.h4>
-        )}
-      </AnimatePresence>
-      <AnimatePresence>
-        {isHovered && (
-          <motion.p
-            className="text-sm text-gray-600 dark:text-gray-200 overflow-y-hidden"
-            initial={{ y: 50 }}
-            animate={{ y: 0 }}
-            exit={{ y: 50 }}
-            transition={{ duration: 0.7, ease: "easeInOut" }}
-          >
-            {description}
-          </motion.p>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  );
-};
 
 const SkeletonOne = () => {
   return (
@@ -133,23 +94,21 @@ const SkeletonFour = () => {
     { title: "Appointment Scheduling", description: "Streamlined OPD management" },
     { title: "Digital Solutions", description: "Customized landing pages and SEO" },
     { title: "Promised Growth", description: "20-30% increase in operations" },
-  ];
+  ]
+
+  const cards = features.map((feature, index) => ({
+    id: index,
+    name: feature.title,
+    designation: "",
+    content: <p>{feature.description}</p>,
+  }))
 
   return (
-    <motion.div
-      initial="initial"
-      whileHover="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2 p-2"
-    >
-      <div className="grid grid-cols-2 gap-2 flex-grow">
-        {features.map((feature, index) => (
-          <FeatureBox key={index} title={feature.title} description={feature.description} />
-        ))}
-      </div>
-     
-    </motion.div>
-  );
-};
+    <div className="w-full h-full flex items-center justify-center mb-40 lg:mb-0">
+      <CardStack items={cards} offset={5} scaleFactor={0.03} />
+    </div>
+  )
+}
 
 const SkeletonFive = () => {
   const features = [
@@ -157,19 +116,23 @@ const SkeletonFive = () => {
     { title: "Health Record Access", description: "Convenient digital records" },
     { title: "Reward System", description: "Every 10th appointment free" },
     { title: "NFTs & Crypto Tokens", description: "Redeemable for services" },
-  ];
+  ]
 
   return (
-    <motion.div className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2 p-2">
-      <div className="grid grid-cols-2 gap-2 flex-grow">
+    <div className="w-full h-full overflow-hidden">
+      
+      <Marquee className="py-2" vertical pauseOnHover>
+        
         {features.map((feature, index) => (
-          <FeatureBox key={index} title={feature.title} description={feature.description} />
+          <div key={index} className="mb-1 p-4 bg-white dark:bg-[#0c1727] border border-white/50 rounded-lg shadow-md">
+            <h3 className="text-xl text-center font-semibold mb-5">{feature.title}</h3>
+            <p className="text-base text-center text-gray-600 dark:text-gray-300">{feature.description}</p>
+          </div>
         ))}
-      </div>
-    </motion.div>
-  );
-};
-
+      </Marquee>
+    </div>
+  )
+}
 const SkeletonSix = () => {
   const variants = {
     initial: { x: 0 },
@@ -216,42 +179,42 @@ export default function BentoGridThirdDemo() {
       title: "Live Doctor's Availability",
       description: <span className="text-sm">Check real-time availability of specialists for consultations.</span>,
       header: <SkeletonOne />,
-      className: "md:col-span-1",
+      className: "md:col-span-1 bg-[url('/blurgradient8.png')] bg-center bg-cover bg-no-repeat filter shadow-lg",
       icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
     },
     {
       title: "Ask The AI",
       description: <span className="text-sm">Ask AI to summarize the patient data for you.</span>,
       header: <SkeletonSix />,
-      className: "md:col-span-1",
+      className: "md:col-span-1 bg-[url('/blurgradient8.png')] bg-center bg-cover bg-no-repeat",
       icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
     },
     {
       title: "Follow Us on Twitter",
       description: <span className="text-sm">Get the latest updates on our Twitter handle, @Healers_Healthcare</span>,
       header: <SkeletonThree />,
-      className: "md:col-span-1",
+      className: "md:col-span-1 bg-[url('/blurgradient8.png')] bg-center  bg-cover bg-no-repeat",
       icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
     },
     {
       title: "For Hospitals",
       description: <span className="text-sm">Comprehensive solutions for efficient hospital management and growth.</span>,
       header: <SkeletonFour />,
-      className: "md:col-span-1",
+      className: "md:col-span-1 bg-[url('/blurgradient8.png')] bg-center bg-cover bg-no-repeat",
       icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
     },
     {
       title: "For Patients",
       description: <span className="text-sm">User-friendly app with rewards and convenient health record access.</span>,
       header: <SkeletonFive />,
-      className: "md:col-span-1",
+      className: "md:col-span-1 bg-[url('/blurgradient8.png')] bg-center bg-cover bg-no-repeat",
       icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
     },
     {
       title: "Follow Us on Instagram",
       description: <span className="text-sm">Stay updated with our latest posts and healthcare tips.</span>,
       header: <SkeletonTwo />,
-      className: "md:col-span-1",
+      className: "md:col-span-1 bg-[url('/blurgradient8.png')] bg-center bg-cover bg-no-repeat",
       icon: <IconBrandInstagram className="h-4 w-4 text-neutral-500" />,
     },
   ];
