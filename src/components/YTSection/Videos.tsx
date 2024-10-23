@@ -22,7 +22,7 @@ const VideoCard = ({ video }: { video: Video; index: number }) => {
     className="mb-12" 
     >
 
-      <Card className="  bg-[url('/gradient10.png')]  bg-opacity-100 backdrop:blur-sm bg-repeat object-contain overflow-hidden bg-transparent shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <Card className="  bg-[url('/blurgradient8.png')]  bg-opacity-100  backdrop:blur-sm bg-center bg-cover overflow-hidden bg-transparent shadow-lg hover:shadow-xl transition-shadow duration-300">
       {/* <BackgroundGradientAnimation className=""> */}
         <CardContent className="p-0 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2  gap-6 h-auto md:h-[400px]">
