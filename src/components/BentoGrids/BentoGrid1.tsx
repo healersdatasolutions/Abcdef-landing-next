@@ -119,8 +119,9 @@ const SkeletonFive = () => {
   ]
 
   return (
-    <div className="w-full h-48 overflow-hidden">
+    <div className="relative w-full h-48 overflow-hidden">
       
+        <div className="gradient top absolute inset-0 top-0 -translate-y-1 z-20 w-[95%] mx-auto h-1/6 bg-gradient-to-b from-black to-transparent pointer-events-none" ></div>
       <Marquee className="py-2" vertical pauseOnHover>
         
         {features.map((feature, index) => (
@@ -130,6 +131,7 @@ const SkeletonFive = () => {
           </div>
         ))}
       </Marquee>
+        <div className="absolute inset-0 bottom-0 -translate-y-1 z-20 w-[95%] mx-auto h-1/6 bg-gradient-to-b from-trasparent to-black pointer-events-none" ></div>
     </div>
   )
 }
