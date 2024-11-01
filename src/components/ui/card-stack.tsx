@@ -54,7 +54,7 @@ export const CardStack = ({
             key={card.id}
             variants={variants}
             
-            className="absolute   h-36 w-full  rounded-xl  shadow-xl border border-black dark:border-black  shadow-black/[0.1] dark:shadow-black "
+            className="absolute   h-36 w-full  rounded-xl  shadow-xl   shadow-black/[0.1] dark:shadow-black "
             style={{
               transformOrigin: "top center",
               
