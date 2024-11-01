@@ -3,7 +3,7 @@
 
 
 import React from "react";
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { BentoGrid, BentoGridItem, BentoGridItem2 } from "@/components/ui/bento-grid";
 import { motion} from "framer-motion";
 import { IconClipboardCopy, IconFileBroken, IconSignature, IconTableColumn, IconBoxAlignRightFilled, IconBrandInstagram } from "@tabler/icons-react";
 // import DotPattern from "./magicui/dot-pattern";
@@ -19,14 +19,26 @@ export function CardStackDemo() {
 
 
 const SkeletonOne = () => {
+  const variants = {
+    initial: { backgroundPosition: "0 50%" },
+    animate: { backgroundPosition: ["0, 50%", "100% 50%", "0 50%"] },
+  };
   return (
+
+    
     <motion.div
       initial="initial"
       animate="animate"
-      whileHover="hover"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+      variants={variants}
+      transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
+      style={{
+        background: "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
+        backgroundSize: "400% 400%",
+      }}
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
     >
-      <motion.div className="h-full rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 grid grid-cols-2 mx-auto gap-16  items-center justify-center">
+
+      <motion.div className="h-full rounded-2xl  p-4  dark:border-white/[0.1] border border-neutral-200 grid grid-cols-2 mx-auto gap-16  items-center justify-center">
         <img
           src="https://www.citizenshospitals.com/static/uploads/130789a4-764e-4ee3-88fe-68f9278452d6-1692966652977.png"
           alt="avatar"
@@ -36,14 +48,15 @@ const SkeletonOne = () => {
         />
         <div className="col-span-1 flex flex-col items-start">
 
-        <p className="text-xl font-semibold text-neutral-500">Dr. John</p>
-        <p className="text-sm font-semibold text-neutral-500 mt-1">Neurosurgeon</p>
-        <p className="border border-purple-500 bg-purple-100 dark:bg-purple-900/20 text-purple-600 text-xs rounded-full px-2 py-0.5 mt-4">
+        <p className="text-xl font-semibold text-white">Dr. John</p>
+        <p className="text-sm font-semibold text-white mt-1">Neurosurgeon</p>
+        <p className="border border-white bg-purple-100 dark:bg-black text-white text-xs rounded-full px-2 py-0.5 mt-4">
           Available
         </p>
         </div>
       </motion.div>
     </motion.div>
+    
   );
 };
 
@@ -95,6 +108,7 @@ const SkeletonFour = () => {
     { title: "Digital Solutions", description: "Customized landing pages and SEO" },
     { title: "Promised Growth", description: "20-30% increase in operations" },
   ]
+  
 
   const cards = features.map((feature, index) => ({
     id: index,
@@ -104,9 +118,12 @@ const SkeletonFour = () => {
   }))
 
   return (
+    
+
     <div className="w-full h-full flex items-center justify-center mb-40 lg:mb-0">
       <CardStack items={cards} offset={5} scaleFactor={0.03} />
     </div>
+   
   )
 }
 
@@ -117,21 +134,40 @@ const SkeletonFive = () => {
     { title: "Reward System", description: "Every 10th appointment free" },
     { title: "NFTs & Crypto Tokens", description: "Redeemable for services" },
   ]
+  const variants = {
+    initial: { backgroundPosition: "0 50%" },
+    animate: { backgroundPosition: ["0, 50%", "100% 50%", "0 50%"] },
+  };
 
   return (
-    <div className="relative w-full h-48 overflow-hidden">
+    <div className="relative w-full bg-transparent rounded-xl  h-[22rem] sm:h-[19.9rem] overflow-hidden">
       
-        <div className="gradient top absolute inset-0 top-0 -translate-y-1 z-20 w-[95%] mx-auto h-1/6 bg-gradient-to-b from-black to-transparent pointer-events-none" ></div>
+        <div className="BlendatTop gradient top absolute inset-0 top-0 -translate-y-1 z-20 w-[100%] mx-auto h-1/6 bg-gradient-to-b from-[#021535] to-transparent pointer-events-none" ></div>
       <Marquee className="py-2" vertical pauseOnHover>
         
         {features.map((feature, index) => (
-          <div key={index} className="mb-1 p-4 bg-white dark:bg-[#0c1727] border border-white/50 rounded-lg shadow-md">
+          <motion.div
+          key={index}
+          initial="initial"
+          animate="animate"
+          variants={variants}
+          transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
+          className="flex flex-1  w-full h-full min-h-[4rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
+          style={{
+            background: "linear-gradient(-45deg, #0f243d, #040e3d, #23a6d5, #23d5ab)",
+            backgroundSize: "400% 400%",
+          }}
+        >
+
+          <div key={index} className="mb-1 m-3 p-4   rounded-lg ">
             <h3 className="text-xl text-center font-semibold mb-5">{feature.title}</h3>
             <p className="text-base text-center text-gray-600 dark:text-gray-300">{feature.description}</p>
           </div>
+        </motion.div>
         ))}
       </Marquee>
-        <div className="absolute inset-0 bottom-0 -translate-y-1 z-20 w-[95%] mx-auto h-1/6 bg-gradient-to-b from-trasparent to-black pointer-events-none" ></div>
+      <div className="BlendatBottom gradient bottom absolute inset-0 bottom-0 translate-y-36 z-20 w-[100%] mx-auto h-[60%] bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
+
     </div>
   )
 }
@@ -239,7 +275,11 @@ export default function BentoGridThirdDemo() {
       </div>
       <BentoGrid className="max-w-6xl mx-5 sm:mx-auto mt-32 md:auto-rows-[20rem] ">
         {items.map((item, i) => (
-          <BentoGridItem
+         // if the i = 5 it should use bento grid item 2
+         
+          
+            i === 4 ? (
+              <BentoGridItem2
             key={i}
             title={item.title}
             description={item.description}
@@ -247,6 +287,17 @@ export default function BentoGridThirdDemo() {
             className={cn("[&>p:text-lg] z-20", item.className)}
             icon={item.icon}
           />
+            ) : (
+              <BentoGridItem
+            key={i}
+            title={item.title}
+            description={item.description}
+            header={item.header}
+            className={cn("[&>p:text-lg] z-20", item.className)}
+            icon={item.icon}
+          />
+            )
+          
         ))}
       </BentoGrid>
       </div>
