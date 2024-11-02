@@ -32,13 +32,13 @@ const SkeletonOne = () => {
       variants={variants}
       transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
       style={{
-        background: "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
+        background: "linear-gradient(-45deg, #0f243d, #040e3d, #23a6d5, #23d5ab)",
         backgroundSize: "400% 400%",
       }}
       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
     >
 
-      <motion.div className="h-full rounded-2xl  p-4  dark:border-white/[0.1] border border-neutral-200 grid grid-cols-2 mx-auto gap-16  items-center justify-center">
+      <motion.div className="h-full rounded-2xl  p-4   grid grid-cols-2 mx-auto gap-16  items-center justify-center">
         <img
           src="https://www.citizenshospitals.com/static/uploads/130789a4-764e-4ee3-88fe-68f9278452d6-1692966652977.png"
           alt="avatar"
@@ -69,7 +69,7 @@ const SkeletonTwo = () => {
     >
       <motion.div className="h-full w-full rounded-lg overflow-hidden">
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-  <InstagramEmbed url="https://www.instagram.com/p/DBHd06gz6W-/" width={628}  />
+  <InstagramEmbed url="https://www.instagram.com/p/DBHd06gz6W-/" width={360} height={400} className="-translate-y-14" igVersion="353.1.0" />
 </div>
       </motion.div>
     </motion.div>
@@ -114,7 +114,7 @@ const SkeletonFour = () => {
     id: index,
     name: feature.title,
     designation: "",
-    content: <p>{feature.description}</p>,
+    content: feature.description,
   }))
 
   return (
