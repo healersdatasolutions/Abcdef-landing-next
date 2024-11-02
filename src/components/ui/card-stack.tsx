@@ -80,13 +80,16 @@ export const CardStack = ({
       }}>
 
             <div className="font-normal text-neutral-700 dark:text-neutral-200">
-              <p className="text-neutral-500 font-medium dark:text-white">
+              <h2 className="text-neutral-500 text-xl text-center font-medium dark:text-white">
                 {card.name}
-              </p>
+              </h2>
             </div>
+            <p className="text-center text-white/70">
+
               {card.content}
+            </p>
             <div>
-              <p className="text-neutral-400 font-normal dark:text-neutral-200">
+              <p className="text-neutral-400 font-normal  dark:text-neutral-200">
                 {card.designation}
               </p>
             </div>
