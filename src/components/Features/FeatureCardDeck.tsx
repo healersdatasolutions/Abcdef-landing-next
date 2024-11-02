@@ -2,7 +2,8 @@
 "use client"
 
 import React, { useEffect, useRef, useState } from 'react'
-import { Card } from "@/components/ui/card"
+// import { Card } from "@/components/ui/card"
+import { NeonGradientCard } from '../ui/neon-gradient-card'
 
 interface CardData {
   id: number
@@ -81,7 +82,7 @@ export default function FeatureCardDeck() {
         <p id="features" className="mt-16 mb-16 z-10 whitespace-pre-wrap text-center text-3xl sm:text-5xl font-medium tracking-tighter text-black dark:text-white">
             The Features Out of the Blue
           </p>
-    <div className="max-w-6xl h-full mx-5 sm:mx-auto relative ">
+    <div className="max-w-7xl h-full mx-5 sm:mx-auto relative ">
       <div className="absolute opacity-60 mix-blend-color-dodge pointer-events-none">
         <div className="absolute -translate-y-[10%] -translate-x-[70%] size-[18.85rem] lg:size-[68.85rem]">
           <img className="w-full rotate-[180deg] opacity-100" src="/gradient.png" width={942} height={942} alt="" />
@@ -99,17 +100,22 @@ export default function FeatureCardDeck() {
       </div>
       <div className="relative z-0 space-y-14 ">
         {cardData.map((card, index) => (
-          <section
+          <section 
             key={card.id}
             ref={(el) => { sectionRefs.current[index] = el }}
             data-index={index}
-            className="[--i:0]"
+            className="[--i:0] w-full"
             style={{ '--e': entered } as React.CSSProperties}
           >
-            <Card className={`relative py-10 h-full bg-[url('/gradient9.png')] object-contain  bg-opacity-100 backdrop:blur-3xl  border-b-2 dark:border-slate-700 overflow-hidden transition-transform duration-700 ease-in-out
+            
+            {/* <Card className={`relative p-1 h-full  object-contain  bg-opacity-100 backdrop:blur-3xl  overflow-hidden transition-transform duration-700 ease-in-out
               ${index === 0 ? 'z-[30]' : index === 1 ? 'z-[29]' : index === 2 ? 'z-[28]': 'z-[27]'}
               ${entered >= index ? 'translate-y-0' : '-translate-y-[calc(100%*(var(--i)-var(--e)))]'}`}
-            >
+            > */}
+              <NeonGradientCard borderSize={2} className={`max-w-6xl mx-auto relative p-1 h-full  object-contain  bg-opacity-100 backdrop:blur-3xl  overflow-hidden transition-transform duration-700 ease-in-out
+              ${index === 0 ? 'z-[30]' : index === 1 ? 'z-[29]' : index === 2 ? 'z-[28]': 'z-[27]'}
+              ${entered >= index ? 'translate-y-0' : '-translate-y-[calc(100%*(var(--i)-var(--e)))]'}`}>
+
               <div className="md:grid grid-cols-3  justify-around items-center my-5" style={{
                 boxSizing: 'content-box',
               }}>
@@ -131,7 +137,9 @@ export default function FeatureCardDeck() {
                 <img className="mx-auto col-span-2 rounded-lg lg:mx-10" src={card.image} width="700" height="800" alt={`Illustration ${card.id}`} />
               </div>
               <div className="absolute left-12 bottom-0 h-14 flex items-center text-xs font-medium text-slate-800">0{card.id}</div>
-            </Card>
+
+              </NeonGradientCard>
+            {/* </Card> */}
           </section>
         ))}
       </div>
