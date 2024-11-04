@@ -12,7 +12,7 @@ import Image from 'next/image'
 export default function FAQ() {
   return (
 
-    <div className='max-w-6xl mx-auto relative'>
+    <div className=' max-w-6xl mx-auto relative'>
       <div className="absolute opacity-40 mix-blend-color-dodge pointer-events-none">
         <div className="absolute -translate-y-[10%] translate-x-[90%] size-[18.85rem] lg:size-[68.85rem]">
           <Image className="w-full rotate-[180deg] opacity-100" src="/gradient.png" width={942} height={942} alt="" />
@@ -20,12 +20,12 @@ export default function FAQ() {
       </div>
         <p
         id="FAQ"
-        className="mt-36 mb-10 z-10  whitespace-pre-wrap text-center text-3xl sm:text-5xl font-medium tracking-tighter text-black dark:text-white "
+        className="mt-36 mb-10 sm:mb-16 z-10  whitespace-pre-wrap text-center text-3xl sm:text-5xl font-medium tracking-tighter text-black dark:text-white "
       >
         Frequently Asked Questions
       </p>
 
-    <div className="w-full flex justify-center px-10 lg:px-0 ">
+    <div className="font-[Poppins] text-xl w-full flex justify-center px-10 lg:px-0 ">
 
   <Accordion type="single" collapsible className="w-full ">
   <AccordionItem value="item-1">
