@@ -11,11 +11,11 @@ import { motion } from 'framer-motion';
 export const StatsCard = () => {
     return (
         <ScrollParallax >
-                                    <div className="w-full z-40 flex   justify-center  lg:justify-end mt-28 sm:-mt-10  ">
+                                    <div className="hidden sm:flex w-full z-40    justify-center  lg:justify-end mt-28 sm:-mt-10  ">
                                         <div className="flex flex-col px-5 py-1 gap-2 bg-transparent backdrop-blur border border-white/10 rounded-2xl xl:flex transition hover:scale-105 ">
                                             <HyperText
                                                 className="text-xl font-bold text-gray-500 dark:text-white -mb-3"
-                                                text="Join Our Comunity"
+                                                text="Join Our Community"
                                             />
                                             <div className="flex gap-2 ">
                                                 <NumberTicker value={10000} />
@@ -62,7 +62,7 @@ export const MedicalRoom = () => {
                                             <img 
                                                 src="/dark-room.png"  
                                                 alt="HealersLogoHero"
-                                                className="CompanyLogo hidden sm:block -translate-x-15 -translate-y-16 object-cover xl:flex w-full h-full hover:scale-110 transition duration-300"
+                                                className="CompanyLogo -translate-x-15 -translate-y-16 object-cover xl:flex w-full h-full hover:scale-110 transition duration-300"
                                                 width={942}
                                                 height={942}
                                                 style={{ width: '170%', height: '170%' }}

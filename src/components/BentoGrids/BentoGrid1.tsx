@@ -48,8 +48,8 @@ const SkeletonOne = () => {
         />
         <div className="col-span-1 flex flex-col items-start">
 
-        <p className="text-xl font-semibold text-white">Dr. John</p>
-        <p className="text-sm font-semibold text-white mt-1">Neurosurgeon</p>
+        <p className="text-xl  text-white">Dr. John</p>
+        <p className="text-sm  text-white mt-1">Neurosurgeon</p>
         <p className="border border-white bg-purple-100 dark:bg-black text-white text-xs rounded-full px-2 py-0.5 mt-4">
           Available
         </p>
@@ -168,7 +168,7 @@ const SkeletonFive = () => {
             </div>
             <div>
 
-            <h3 className="  font-semibold ">{feature.title}</h3>
+            <h3 className="   ">{feature.title}</h3>
             <p className="text-sm  text-gray-600 dark:text-gray-300">{feature.description}</p>
             </div>
           </div>
@@ -181,42 +181,64 @@ const SkeletonFive = () => {
   )
 }
 const SkeletonSix = () => {
-  const variants = {
-    initial: { x: 0 },
-    animate: { x: 10, rotate: 5, transition: { duration: 0.2 } },
-  };
-  const variantsSecond = {
-    initial: { x: 0 },
-    animate: { x: -10, rotate: -5, transition: { duration: 0.2 } },
+ 
+  const variants2 = {
+    initial: { backgroundPosition: "0 50%" },
+    animate: { backgroundPosition: ["0, 50%", "100% 50%", "0 50%"] },
   };
 
   return (
-    <motion.div
-      initial="initial"
-      whileHover="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+    
+    <div
+      
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-5"
     >
       <motion.div
-        variants={variantsSecond}
-        className="flex flex-row rounded-full border border-gray-600 dark:border-white/[0.2] p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
-      >
-        <p className="text-xs text-neutral-500"><span className="text-green-500">You:</span> Does the patient have any past allergies?</p>
+      initial="initial"
+      animate="animate"
+      variants={variants2}
+      transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
+      className="flex flex-row rounded-full border border-gray-600 dark:border-white/[0.2] px-4 py-3 items-center justify-end space-x-2 w-[90%] ml-auto "
+      style={{
+        background: "linear-gradient(-45deg, #0f243d, #040e3d, #23a6d5, #23d5ab)",
+        backgroundSize: "400% 400%",
+      }}
+    >
+
+      
+        <p className="text-sm text-white"><span className="text-white">You:</span> Does the patient have any past allergies?</p>
         <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
-      </motion.div>
-      <motion.div
-        variants={variants}
-        className="flex flex-row rounded-2xl border border-gray-600 dark:border-white/[0.2] p-2 items-start space-x-2 bg-white dark:bg-black"
-      >
-        <img
-          src="https://img.freepik.com/free-vector/chatbot-chat-message-vectorart_78370-4104.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1726531200&semt=ais_hybrid"
+    
+    </motion.div>
+
+
+
+    <motion.div
+      initial="initial"
+      animate="animate"
+      variants={variants2}
+      transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
+      className="flex flex-row rounded-full border border-gray-600 dark:border-white/[0.2] p-2 items-center space-x-2"
+      style={{
+        background: "linear-gradient(-45deg, #0f243d, #040e3d, #23a6d5, #23d5ab)",
+        backgroundSize: "400% 400%",
+      }}
+    >
+
+      
+<img
+          src="/gradient2.png"
           alt="avatar"
           height="100"
           width="100"
           className="rounded-full h-10 w-10"
         />
-        <p className="text-xs text-neutral-500"><span className="text-blue-500">AI:</span> Yes, the patient has a history of asthma. The patient is allergic to dust and pollen.</p>
-      </motion.div>
+        <p className="text-sm text-white"><span className="white">AI:</span> Yes, the patient has a history of asthma. </p>
     </motion.div>
+
+    
+      
+    </div>
   );
 };
 
@@ -282,7 +304,7 @@ export default function BentoGridThirdDemo() {
           <img className="w-full rotate-[230deg] opacity-100" src="/gradient.png" width={942} height={942} alt="" />
         </div>
       </div>
-      <BentoGrid className="max-w-6xl mx-5 sm:mx-auto mt-32 md:auto-rows-[20rem] ">
+      <BentoGrid className="max-w-6xl mx-5 sm:mx-auto mt-32 md:auto-rows-[20rem] font-[Poppins]">
         {items.map((item, i) => (
          // if the i = 5 it should use bento grid item 2
          

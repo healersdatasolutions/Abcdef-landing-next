@@ -88,11 +88,11 @@ export const CardStack = ({
 
             <div className="font-normal text-neutral-700 dark:text-neutral-200">
               
-              <h2 className="font-[Rockwell] font-bold text-neutral-500 text-[1.25rem]   dark:text-white">
+              <h2 className="font-[Poppins]  text-neutral-500 text-[1.1rem]   dark:text-white">
                 {card.name}
               </h2>
             </div>
-            <p className=" text-sm font-[Consolas] text-white/70">
+            <p className=" text-sm font-[Poppins] text-white/70">
 
               {card.content}
             </p>
