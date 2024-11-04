@@ -16,7 +16,7 @@ export default function TrustedBy2() {
   return (
    
 
-    <section className="text-center py-12 relative mt-56 sm:mt-[36rem] md:mt-[10rem] lg:mt-0">
+    <section className="text-center py-12 relative mt-0 sm:mt-[36rem] md:mt-[10rem] lg:mt-0">
       <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent h-80 pointer-events-none"></div>
       <div className="absolute opacity-40 mix-blend-color-dodge pointer-events-none ">
         <div className="absolute -translate-y-[10%] translate-x-[90%] size-[18.85rem] lg:size-[68.85rem]">
