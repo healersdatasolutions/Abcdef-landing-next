@@ -10,6 +10,7 @@ type Card = {
   name: string;
   designation: string;
   content: React.ReactNode;
+  image: React.JSX.Element;
 };
 
 export const CardStack = ({
@@ -70,7 +71,7 @@ export const CardStack = ({
             <motion.div
       initial="initial"
       animate="animate"
-      className="  h-full w-full p-4  rounded-xl shadow-xl border   shadow-black/[0.1] dark:shadow-black flex flex-col justify-evenly"
+      className="  h-full w-full    rounded-sm shadow-xl border   shadow-black/[0.1] dark:shadow-black flex flex-col justify-evenly"
 
       variants={variants}
       transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
@@ -78,13 +79,20 @@ export const CardStack = ({
         background: "linear-gradient(-45deg, #0f243d, #040e3d, #23a6d5, #23d5ab)",
         backgroundSize: "400% 400%",
       }}>
+          <div className="flex justify-between items-center overflow-hidden">
+            <h1 className="text-[10rem] text-white/65  opacity-35 -translate-x-12 translate-y-5">
+
+              {card.image}
+            </h1>
+          <div className="-translate-x-7 flex flex-col gap-1">
 
             <div className="font-normal text-neutral-700 dark:text-neutral-200">
-              <h2 className="text-neutral-500 text-xl text-center font-medium dark:text-white">
+              
+              <h2 className="font-[Rockwell] font-bold text-neutral-500 text-[1.25rem]   dark:text-white">
                 {card.name}
               </h2>
             </div>
-            <p className="text-center text-white/70">
+            <p className=" text-sm font-[Consolas] text-white/70">
 
               {card.content}
             </p>
@@ -93,6 +101,8 @@ export const CardStack = ({
                 {card.designation}
               </p>
             </div>
+          </div>
+          </div>
       </motion.div>
           </motion.div>
      

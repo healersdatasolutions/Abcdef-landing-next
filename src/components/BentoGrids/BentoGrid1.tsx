@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-
+import { FaHospitalAlt, FaMobileAlt, FaChartLine, FaGift, FaAnchor, FaDatabase } from "react-icons/fa";
 import React from "react";
 import { BentoGrid, BentoGridItem, BentoGridItem2 } from "@/components/ui/bento-grid";
 import { motion} from "framer-motion";
@@ -103,18 +103,18 @@ const SkeletonThree = () => {
 
 const SkeletonFour = () => {
   const features = [
-    { title: "Patient Data Management", description: "Secure and organized record-keeping" },
-    { title: "Appointment Scheduling", description: "Streamlined OPD management" },
-    { title: "Digital Solutions", description: "Customized landing pages and SEO" },
-    { title: "Promised Growth", description: "20-30% increase in operations" },
+    { title: "Patient Data Management", description: "Secure and organized record-keeping", icon: <FaDatabase className="" /> },
+    { title: "Appointment Scheduling", description: "Streamlined OPD management", icon: <FaHospitalAlt className="" /> },
+    { title: "Digital Solutions", description: "Customized landing pages and SEO", icon: <FaAnchor className="" /> },
+    { title: "Promised Growth", description: "20-30% increase in operations", icon: <FaChartLine className="" /> },
   ]
-  
 
   const cards = features.map((feature, index) => ({
     id: index,
     name: feature.title,
     designation: "",
     content: feature.description,
+    image: feature.icon,
   }))
 
   return (
@@ -129,10 +129,10 @@ const SkeletonFour = () => {
 
 const SkeletonFive = () => {
   const features = [
-    { title: "Mobile Application", description: "User-friendly Android app" },
-    { title: "Health Record Access", description: "Convenient digital records" },
-    { title: "Reward System", description: "Every 10th appointment free" },
-    { title: "NFTs & Crypto Tokens", description: "Redeemable for services" },
+    { title: "Mobile Application", description: "User-friendly Android app",icon: <FaMobileAlt className="text-red-500" /> },
+    { title: "Health Record Access", description: "Convenient digital records", icon: <FaChartLine className="text-purple-500" /> },
+    { title: "Reward System", description: "Every 10th appointment free",icon: <FaGift className="text-pink-500" /> },
+    { title: "NFTs & Crypto Tokens", description: "Redeemable for services", icon: <FaChartLine className="text-purple-500" /> },
   ]
   const variants = {
     initial: { backgroundPosition: "0 50%" },
@@ -140,7 +140,7 @@ const SkeletonFive = () => {
   };
 
   return (
-    <div className="relative w-full bg-transparent rounded-xl  h-[22rem] sm:h-[19.9rem] overflow-hidden">
+    <div className="relative w-full bg-transparent   h-[22rem] sm:h-[19.9rem] overflow-hidden">
       
         <div className="BlendatTop gradient top absolute inset-0 top-0 -translate-y-1 z-20 w-[100%] mx-auto h-1/6 bg-gradient-to-b from-[#021535] to-transparent pointer-events-none" ></div>
       <Marquee className="py-2" vertical pauseOnHover>
@@ -152,16 +152,25 @@ const SkeletonFive = () => {
           animate="animate"
           variants={variants}
           transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
-          className="flex flex-1  w-full h-full min-h-[4rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
+          className="flex flex-1 mx-3 h-full min-h-[4rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
           style={{
             background: "linear-gradient(-45deg, #0f243d, #040e3d, #23a6d5, #23d5ab)",
             backgroundSize: "400% 400%",
           }}
         >
 
-          <div key={index} className="mb-1 m-3 p-4   rounded-lg ">
-            <h3 className="text-xl text-center font-semibold mb-5">{feature.title}</h3>
-            <p className="text-base text-center text-gray-600 dark:text-gray-300">{feature.description}</p>
+          <div key={index} className="mb-1 m-3 p-4   rounded-lg flex justify-around items-center">
+            <div className="size-10">
+              <h1 className="text-4xl">
+
+              {feature.icon}
+              </h1>
+            </div>
+            <div>
+
+            <h3 className="  font-semibold ">{feature.title}</h3>
+            <p className="text-sm  text-gray-600 dark:text-gray-300">{feature.description}</p>
+            </div>
           </div>
         </motion.div>
         ))}
