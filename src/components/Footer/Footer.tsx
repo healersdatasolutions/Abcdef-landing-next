@@ -5,11 +5,14 @@ import React from "react";
 // import { TextHoverEffect } from "../ui/text-hover-effect";
 import ScrollTo from "../ui/scrollTo";
 import Link from "next/link";
+import { TextHoverEffect } from "../ui/text-hover-effect";
 const Footer = () => {
   return (
     <>
-      {/* <TextHoverEffect text="Healers" /> */}
-      <footer className="relative z-10 bg-white dark:bg-gradient-to-b from-[#040c13] to-black pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px] rounded-lg">
+      {/* <div className="hidden sm:flex items-center bg-gradient-to-b from-transparent to-black justify-center translate-y-14">
+    </div> */}
+      <footer className="relative z-10 bg-gradient-to-b from-transparent to-black pb-10 pt-20  lg:pb-20 lg:pt-[120px] rounded-lg">
+      <TextHoverEffect text="HEALERS HEALTHCARE" />
         <div className="container">
           <div className="-mx-4 flex justify-between flex-wrap text-center sm:text-left">
             <div className="w-full px-4 sm:w-2/3 lg:w-3/12">

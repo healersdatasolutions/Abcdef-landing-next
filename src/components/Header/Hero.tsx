@@ -29,8 +29,8 @@ const Hero = () => {
     return (
         <Section className="" crosses crossesOffset="lg:translate-y-[5.25rem]" customPaddings id="hero">
             <BackgroundLines className="">
-                <div className="h-[60rem] lg:h-screen md:h-[60rem] w-full rounded-md flex md:items-center md:justify-center bg-transparent dark:bg-black/[0.80] antialiased bg-grid-white/[0.02] relative overflow-hidden">
-                    <div className="absolute ">
+                <div className="h-[43rem] lg:h-screen md:h-[60rem] w-full rounded-md flex md:items-center md:justify-center bg-transparent dark:bg-black/[0.80] antialiased bg-grid-white/[0.02] relative overflow-hidden">
+                    <div className="absolute hidden sm:block">
                         <BackgroundParallaxImg/>
                     </div>
 
@@ -53,14 +53,18 @@ const Hero = () => {
                                 <div className="HeroTitleAndSubTitle  w-full grid grid-cols-1 lg:grid-cols-2  ">
                                     <div className="subSubContainer flex flex-col  md:-mt-48 lg:-mt-0 lg:self-center justify-start sm:justify-center items-center lg:items-start  h-[20rem] pt-[10rem] sm:pt-[0]  ">
                                         <div className="HeroTitle flex flex-col ">
+                                            <Image className="block sm:hidden -translate-y-28 self-center" src="/HealersHealthcareOfficialLogo 1.png" width={400} height={300} alt="Healers Logo" />
                                         <WordRotate
-  className="text-2xl md:text-4xl xl:text-5xl font-semibold text-black dark:text-[#c4c3c3] text-wrap text-center lg:text-left lg:pr-10 "
+  className="hidden sm:block text-2xl md:text-4xl xl:text-5xl font-semibold text-black dark:text-[#c4c3c3] text-wrap text-center lg:text-left lg:pr-10 "
   sentences={[
     "Simplifying Appointments, Revolutionizing Healthcare",
     "Bridging the Gap Between Patients and Hospitals",
     "Where Technology Meets Compassionate Care"
   ]}
 />
+<h1 className="block -translate-y-24  sm:hidden text-xl md:text-4xl xl:text-5xl font-semibold text-black dark:text-[#c4c3c3] text-wrap text-center lg:text-left lg:pr-10">
+Simplifying Appointments, Revolutionizing Healthcare
+</h1>
                                         </div>
 
                                         <div className="subtext w-[75%] text-center lg:text-left" >
@@ -99,12 +103,14 @@ const Hero = () => {
                         <TooltipProvider>
   <Tooltip>
     <TooltipTrigger asChild>
+        <Link href="https://play.google.com/store/apps/details?id=healers.data.solutions&hl=en">
     <button className="z-20 relative inline-flex h-12  overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 transform hover:-translate-y-1 transition duration-400">
                                     <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#000_0%,#393BB2_50%,#E2CBFF_100%)]" />
                                     <span className="text-black inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-[#fff] px-3 py-1 text- font-medium backdrop-blur-3xl ">
                                         Download Our Mobile App
                                     </span>
                                 </button>
+                                </Link>
     </TooltipTrigger>
     <TooltipContent>
       <p>Get the best experience on the go with our mobile app</p>

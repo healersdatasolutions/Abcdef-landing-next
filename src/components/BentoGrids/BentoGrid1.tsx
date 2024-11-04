@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-
+import { FaHospitalAlt, FaMobileAlt, FaChartLine, FaGift, FaAnchor, FaDatabase } from "react-icons/fa";
 import React from "react";
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { BentoGrid, BentoGridItem, BentoGridItem2 } from "@/components/ui/bento-grid";
 import { motion} from "framer-motion";
 import { IconClipboardCopy, IconFileBroken, IconSignature, IconTableColumn, IconBoxAlignRightFilled, IconBrandInstagram } from "@tabler/icons-react";
 // import DotPattern from "./magicui/dot-pattern";
@@ -19,14 +19,26 @@ export function CardStackDemo() {
 
 
 const SkeletonOne = () => {
+  const variants = {
+    initial: { backgroundPosition: "0 50%" },
+    animate: { backgroundPosition: ["0, 50%", "100% 50%", "0 50%"] },
+  };
   return (
+
+    
     <motion.div
       initial="initial"
       animate="animate"
-      whileHover="hover"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+      variants={variants}
+      transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
+      style={{
+        background: "linear-gradient(-45deg, #0f243d, #040e3d, #23a6d5, #23d5ab)",
+        backgroundSize: "400% 400%",
+      }}
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
     >
-      <motion.div className="h-full rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 grid grid-cols-2 mx-auto gap-16  items-center justify-center">
+
+      <motion.div className="h-full rounded-2xl  p-4   grid grid-cols-2 mx-auto gap-16  items-center justify-center">
         <img
           src="https://www.citizenshospitals.com/static/uploads/130789a4-764e-4ee3-88fe-68f9278452d6-1692966652977.png"
           alt="avatar"
@@ -36,14 +48,15 @@ const SkeletonOne = () => {
         />
         <div className="col-span-1 flex flex-col items-start">
 
-        <p className="text-xl font-semibold text-neutral-500">Dr. John</p>
-        <p className="text-sm font-semibold text-neutral-500 mt-1">Neurosurgeon</p>
-        <p className="border border-purple-500 bg-purple-100 dark:bg-purple-900/20 text-purple-600 text-xs rounded-full px-2 py-0.5 mt-4">
+        <p className="text-xl  text-white">Dr. John</p>
+        <p className="text-sm  text-white mt-1">Neurosurgeon</p>
+        <p className="border border-white bg-purple-100 dark:bg-black text-white text-xs rounded-full px-2 py-0.5 mt-4">
           Available
         </p>
         </div>
       </motion.div>
     </motion.div>
+    
   );
 };
 
@@ -56,7 +69,7 @@ const SkeletonTwo = () => {
     >
       <motion.div className="h-full w-full rounded-lg overflow-hidden">
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-  <InstagramEmbed url="https://www.instagram.com/p/DBHd06gz6W-/" width={628}  />
+  <InstagramEmbed url="https://www.instagram.com/p/DBHd06gz6W-/" width={360} height={400} className="-translate-y-14" igVersion="353.1.0" />
 </div>
       </motion.div>
     </motion.div>
@@ -90,86 +103,142 @@ const SkeletonThree = () => {
 
 const SkeletonFour = () => {
   const features = [
-    { title: "Patient Data Management", description: "Secure and organized record-keeping" },
-    { title: "Appointment Scheduling", description: "Streamlined OPD management" },
-    { title: "Digital Solutions", description: "Customized landing pages and SEO" },
-    { title: "Promised Growth", description: "20-30% increase in operations" },
+    { title: "Patient Data Management", description: "Secure and organized record-keeping", icon: <FaDatabase className="" /> },
+    { title: "Appointment Scheduling", description: "Streamlined OPD management", icon: <FaHospitalAlt className="" /> },
+    { title: "Digital Solutions", description: "Customized landing pages and SEO", icon: <FaAnchor className="" /> },
+    { title: "Promised Growth", description: "20-30% increase in operations", icon: <FaChartLine className="" /> },
   ]
 
   const cards = features.map((feature, index) => ({
     id: index,
     name: feature.title,
     designation: "",
-    content: <p>{feature.description}</p>,
+    content: feature.description,
+    image: feature.icon,
   }))
 
   return (
+    
+
     <div className="w-full h-full flex items-center justify-center mb-40 lg:mb-0">
       <CardStack items={cards} offset={5} scaleFactor={0.03} />
     </div>
+   
   )
 }
 
 const SkeletonFive = () => {
   const features = [
-    { title: "Mobile Application", description: "User-friendly Android app" },
-    { title: "Health Record Access", description: "Convenient digital records" },
-    { title: "Reward System", description: "Every 10th appointment free" },
-    { title: "NFTs & Crypto Tokens", description: "Redeemable for services" },
+    { title: "Mobile Application", description: "User-friendly Android app",icon: <FaMobileAlt className="text-red-500" /> },
+    { title: "Health Record Access", description: "Convenient digital records", icon: <FaChartLine className="text-purple-500" /> },
+    { title: "Reward System", description: "Every 10th appointment free",icon: <FaGift className="text-pink-500" /> },
+    { title: "NFTs & Crypto Tokens", description: "Redeemable for services", icon: <FaChartLine className="text-purple-500" /> },
   ]
+  const variants = {
+    initial: { backgroundPosition: "0 50%" },
+    animate: { backgroundPosition: ["0, 50%", "100% 50%", "0 50%"] },
+  };
 
   return (
-    <div className="w-full h-48 overflow-hidden">
+    <div className="relative w-full bg-transparent   h-[22rem] sm:h-[19.9rem] overflow-hidden">
       
+        <div className="BlendatTop gradient top absolute inset-0 top-0 -translate-y-1 z-20 w-[100%] mx-auto h-1/6 bg-gradient-to-b from-[#021535] to-transparent pointer-events-none" ></div>
       <Marquee className="py-2" vertical pauseOnHover>
         
         {features.map((feature, index) => (
-          <div key={index} className="mb-1 p-4 bg-white dark:bg-[#0c1727] border border-white/50 rounded-lg shadow-md">
-            <h3 className="text-xl text-center font-semibold mb-5">{feature.title}</h3>
-            <p className="text-base text-center text-gray-600 dark:text-gray-300">{feature.description}</p>
+          <motion.div
+          key={index}
+          initial="initial"
+          animate="animate"
+          variants={variants}
+          transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
+          className="flex flex-1 mx-3 h-full min-h-[4rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
+          style={{
+            background: "linear-gradient(-45deg, #0f243d, #040e3d, #23a6d5, #23d5ab)",
+            backgroundSize: "400% 400%",
+          }}
+        >
+
+          <div key={index} className="mb-1 m-3 p-4   rounded-lg flex justify-around items-center">
+            <div className="size-10">
+              <h1 className="text-4xl">
+
+              {feature.icon}
+              </h1>
+            </div>
+            <div>
+
+            <h3 className="   ">{feature.title}</h3>
+            <p className="text-sm  text-gray-600 dark:text-gray-300">{feature.description}</p>
+            </div>
           </div>
+        </motion.div>
         ))}
       </Marquee>
+      <div className="BlendatBottom gradient bottom absolute inset-0 bottom-0 translate-y-36 z-20 w-[100%] mx-auto h-[60%] bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
+
     </div>
   )
 }
 const SkeletonSix = () => {
-  const variants = {
-    initial: { x: 0 },
-    animate: { x: 10, rotate: 5, transition: { duration: 0.2 } },
-  };
-  const variantsSecond = {
-    initial: { x: 0 },
-    animate: { x: -10, rotate: -5, transition: { duration: 0.2 } },
+ 
+  const variants2 = {
+    initial: { backgroundPosition: "0 50%" },
+    animate: { backgroundPosition: ["0, 50%", "100% 50%", "0 50%"] },
   };
 
   return (
-    <motion.div
-      initial="initial"
-      whileHover="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+    
+    <div
+      
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-5"
     >
       <motion.div
-        variants={variantsSecond}
-        className="flex flex-row rounded-full border border-gray-600 dark:border-white/[0.2] p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
-      >
-        <p className="text-xs text-neutral-500"><span className="text-green-500">You:</span> Does the patient have any past allergies?</p>
+      initial="initial"
+      animate="animate"
+      variants={variants2}
+      transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
+      className="flex flex-row rounded-full border border-gray-600 dark:border-white/[0.2] px-4 py-3 items-center justify-end space-x-2 w-[90%] ml-auto "
+      style={{
+        background: "linear-gradient(-45deg, #0f243d, #040e3d, #23a6d5, #23d5ab)",
+        backgroundSize: "400% 400%",
+      }}
+    >
+
+      
+        <p className="text-sm text-white"><span className="text-white">You:</span> Does the patient have any past allergies?</p>
         <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
-      </motion.div>
-      <motion.div
-        variants={variants}
-        className="flex flex-row rounded-2xl border border-gray-600 dark:border-white/[0.2] p-2 items-start space-x-2 bg-white dark:bg-black"
-      >
-        <img
-          src="https://img.freepik.com/free-vector/chatbot-chat-message-vectorart_78370-4104.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1726531200&semt=ais_hybrid"
+    
+    </motion.div>
+
+
+
+    <motion.div
+      initial="initial"
+      animate="animate"
+      variants={variants2}
+      transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
+      className="flex flex-row rounded-full border border-gray-600 dark:border-white/[0.2] p-2 items-center space-x-2"
+      style={{
+        background: "linear-gradient(-45deg, #0f243d, #040e3d, #23a6d5, #23d5ab)",
+        backgroundSize: "400% 400%",
+      }}
+    >
+
+      
+<img
+          src="/gradient2.png"
           alt="avatar"
           height="100"
           width="100"
           className="rounded-full h-10 w-10"
         />
-        <p className="text-xs text-neutral-500"><span className="text-blue-500">AI:</span> Yes, the patient has a history of asthma. The patient is allergic to dust and pollen.</p>
-      </motion.div>
+        <p className="text-sm text-white"><span className="white">AI:</span> Yes, the patient has a history of asthma. </p>
     </motion.div>
+
+    
+      
+    </div>
   );
 };
 
@@ -235,9 +304,13 @@ export default function BentoGridThirdDemo() {
           <img className="w-full rotate-[230deg] opacity-100" src="/gradient.png" width={942} height={942} alt="" />
         </div>
       </div>
-      <BentoGrid className="max-w-6xl mx-5 sm:mx-auto mt-32 md:auto-rows-[20rem] ">
+      <BentoGrid className="max-w-6xl mx-5 sm:mx-auto mt-32 md:auto-rows-[20rem] font-[Poppins]">
         {items.map((item, i) => (
-          <BentoGridItem
+         // if the i = 5 it should use bento grid item 2
+         
+          
+            i === 4 ? (
+              <BentoGridItem2
             key={i}
             title={item.title}
             description={item.description}
@@ -245,6 +318,17 @@ export default function BentoGridThirdDemo() {
             className={cn("[&>p:text-lg] z-20", item.className)}
             icon={item.icon}
           />
+            ) : (
+              <BentoGridItem
+            key={i}
+            title={item.title}
+            description={item.description}
+            header={item.header}
+            className={cn("[&>p:text-lg] z-20", item.className)}
+            icon={item.icon}
+          />
+            )
+          
         ))}
       </BentoGrid>
       </div>
