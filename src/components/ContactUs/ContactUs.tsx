@@ -42,10 +42,10 @@ export function ContactUs() {
         
 
         <div className="flex flex-col items-center justify-center space-y-8">
-          <h1 className={cn("md:text-4xl text-xl text-white text-center")}>
-            To know More Join Us
+          <h1 className={cn("md:text-[2.75rem] text-xl text-white text-center")}>
+            Get in touch with us
           </h1>
-          <p className="text-center mt-2 mb-4 text-neutral-300 max-w-md">
+          <p className="text-center  mt-2 mb-4 text-neutral-300 max-w-md">
             Get on early access to the latest updates.
           </p>
           
