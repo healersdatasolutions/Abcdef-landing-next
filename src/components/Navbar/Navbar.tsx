@@ -28,7 +28,7 @@ import {
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Hospitals",
-    href: "#clients",
+    href: "/onboards",
     description: "Hospitals Onboarded With Us",
   },
   {
@@ -38,7 +38,7 @@ const components: { title: string; href: string; description: string }[] = [
   },
   {
     title: "Progress",
-    href: "#bentotwo",
+    href: "/timeline",
     description: "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
   },
   {
@@ -78,13 +78,13 @@ export function NavigationMenuNew() {
                       </Link>
                     </NavigationMenuLink>
                   </li>
-                  <ListItem href="#ytLinks" title="Introduction">
+                  <ListItem href="/about-us" title="Introduction">
                     Know About Our Brief and Story
                   </ListItem>
-                  <ListItem href="#clients" title="Onboards">
+                  <ListItem href="/onboards" title="Onboards">
                     Get To Know About Our Clients
                   </ListItem>
-                  <ListItem href="#app" title="Mobile Application">
+                  <ListItem href="/mobile-application" title="Mobile Application">
                     Get Our Mobile Application 
                   </ListItem>
                 </ul>
