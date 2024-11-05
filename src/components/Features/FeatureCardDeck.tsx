@@ -37,7 +37,7 @@ const cardData: CardData[] = [
     color: "text-teal-400",
     description: "Manage The Records for the Patients",
     content: "The Smart Health Records System is a web-based application that allows patients to view their health records and doctors to manage their patients' records.",
-    image: "/feature1.png?height=490&width=519"
+    image: "/featurePage1.png?height=490&width=519"
   },
   {
     id: 2,
@@ -45,7 +45,7 @@ const cardData: CardData[] = [
     color: "text-teal-800 dark:text-sky-400",
     description: "Handle Appointments for the Patients ",
     content: "Know about the appointments of the patients and manage them easily. Book Appointments, Check Availability, Past Records and much more.",
-    image: "/feature3.png"
+    image: "/featurePage2.png"
   },
   {
     id: 3,
@@ -53,7 +53,7 @@ const cardData: CardData[] = [
     color: "text-teal-800 dark:text-teal-400",
     description: "Get the details of the Patients",
     content: "Get the Patient's Medical History, Test Reports, Past Appointments, Prescriptions, Recovery and Much More.",
-    image: "/feature2.png?height=490&width=519"
+    image: "/featurePage3.png?height=490&width=519"
   },
   {
     id: 4,
@@ -61,7 +61,7 @@ const cardData: CardData[] = [
     color: "text-teal-400",
     description: "Manage the Inventory of the Hospital",
     content: "Manage the Inventory of the Hospital, Check the availability of the Medicines, Equipments, and other necessary items.",
-    image: "/feature4.png?height=490&width=519"
+    image: "/featurePage4.png?height=490&width=519"
   },
 ]
 
@@ -149,7 +149,7 @@ export default function FeatureCardDeck() {
                       </a>
                     </div>
                   </div>
-                  <img className="mx-auto col-span-2 rounded-lg lg:mx-10 " src={card.image} width="700" height="800" alt={`Illustration ${card.id}`} />
+                  <img className="mx-auto col-span-2 rounded-lg lg:mx-10 shadow-2xl " src={card.image} width="700" height="800" alt={`Illustration ${card.id}`} />
                 </div>
                 <div className="absolute left-12 bottom-0 h-14 flex items-center text-xs font-medium text-slate-800">0{card.id}</div>
               </NeonGradientCard>
