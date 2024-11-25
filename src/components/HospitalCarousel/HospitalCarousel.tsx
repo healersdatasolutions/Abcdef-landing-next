@@ -14,7 +14,7 @@ const hospitals = [
   { id: 2, name: "Central Medical Center", img: "https://infrastructurepipeline.org/files/images/optimised/project_hero/files/images/project/generichospital7-6683a90066d1f804300495.jpg", description: "Full-service hospital with state-of-the-art facilities and expert medical staff", category: "GENERAL CARE" },
   { id: 3, name: "Care Hospital", img: "https://www.carehospitals.com/assets/images/main/vizag-health-city-704350.png", description: "Pediatric care experts providing comprehensive healthcare for children", category: "PEDIATRICS" },
   { id: 4, name: "Sarka World Hospital", img: "https://www.impactguru.com/info/wp-content/uploads/2023/11/Sakra-World-Hospital.jpg", description: "Emergency and trauma center equipped to handle critical situations 24/7", category: "EMERGENCY" },
-  { id: 5, name: "Manipal Hospital", img: "https://avocure-uploads.s3.amazonaws.com/uploads/clinic/cover_pic_url/47/manipal-hospital-bangalore-1481708155-5851127b1ff31.jpg", description: "Specialized in rehabilitation services and long-term care", category: "REHABILITATION" },
+  { id: 5, name: "Manipal Hospital", img: "https://www.daniamedicare.com/wp-content/uploads/2022/09/Manipal-banglore.jpg", description: "Specialized in rehabilitation services and long-term care", category: "REHABILITATION" },
 ]
 
 export default function HospitalCarousel() {
