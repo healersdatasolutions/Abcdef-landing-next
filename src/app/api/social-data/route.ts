@@ -2,7 +2,16 @@
 import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
+let prisma: PrismaClient;
+
+if (process.env.NODE_ENV === 'production') {
+  prisma = new PrismaClient();
+} else {
+  if (!(global as any).prisma) {
+    (global as any).prisma = new PrismaClient();
+  }
+  prisma = (global as any).prisma;
+}
 
 export async function GET() {
   try {
@@ -21,9 +30,8 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { twitterPostId, instagramPostUrl, videos } = body;
 
-    // Update or create social data
     const updatedSocialData = await prisma.socialData.upsert({
-      where: { id: 1 }, // Assuming we always have one record
+      where: { id: 1 },
       update: {
         twitterPostId,
         instagramPostUrl,
@@ -56,4 +64,3 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Error updating social data' }, { status: 500 });
   }
 }
-
