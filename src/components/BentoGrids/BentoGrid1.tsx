@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { FaHospitalAlt, FaMobileAlt, FaChartLine, FaGift, FaAnchor, FaDatabase } from "react-icons/fa";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BentoGrid, BentoGridItem, BentoGridItem2 } from "@/components/ui/bento-grid";
 import { motion} from "framer-motion";
 import { IconClipboardCopy, IconFileBroken, IconSignature, IconTableColumn, IconBoxAlignRightFilled, IconBrandInstagram } from "@tabler/icons-react";
@@ -12,6 +13,7 @@ import ClientTweetCard from "../ui/client-tweet-card";
 import { CardStack } from "@/components/ui/card-stack";
 import { cn } from "@/lib/utils";
 import Marquee from "../ui/marquee";
+import { fetchSocialData } from "@/utils/fetchSocialData";
 export function CardStackDemo() {
   
 }
@@ -60,7 +62,7 @@ const SkeletonOne = () => {
   );
 };
 
-const SkeletonTwo = () => {
+const SkeletonTwo = ({ instagramPostUrl }: { instagramPostUrl: string }) => {
   return (
     <motion.div
       initial="initial"
@@ -69,14 +71,14 @@ const SkeletonTwo = () => {
     >
       <motion.div className="h-full w-full rounded-lg overflow-hidden">
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-  <InstagramEmbed url="https://www.instagram.com/p/DBHd06gz6W-/" width={360} height={400} className="-translate-y-14" igVersion="353.1.0" />
-</div>
+          <InstagramEmbed url={instagramPostUrl} width={360} height={400} className="-translate-y-14" igVersion="353.1.0" />
+        </div>
       </motion.div>
     </motion.div>
   );
 };
 
-const SkeletonThree = () => {
+const SkeletonThree = ({ twitterPostId }: { twitterPostId: string }) => {
   const variants = {
     initial: { backgroundPosition: "0 50%" },
     animate: { backgroundPosition: ["0, 50%", "100% 50%", "0 50%"] },
@@ -95,7 +97,7 @@ const SkeletonThree = () => {
       }}
     >
       <motion.div className="h-full w-full rounded-lg">
-        <ClientTweetCard id="1835722369819971792" className="shadow-2xl" />
+        <ClientTweetCard id={twitterPostId} className="shadow-2xl" />
       </motion.div>
     </motion.div>
   );
@@ -243,6 +245,16 @@ const SkeletonSix = () => {
 };
 
 export default function BentoGridThirdDemo() {
+  const [socialData, setSocialData] = useState<any>(null);
+
+  useEffect(() => {
+    async function loadSocialData() {
+      const data = await fetchSocialData();
+      setSocialData(data);
+    }
+    loadSocialData();
+  }, []);
+
   const items = [
     {
       title: "Live Doctor's Availability",
@@ -261,7 +273,7 @@ export default function BentoGridThirdDemo() {
     {
       title: "Follow Us on Twitter",
       description: <span className="text-sm">Get the latest updates on our Twitter handle, @Healers_Healthcare</span>,
-      header: <SkeletonThree />,
+      header: socialData ? <SkeletonThree twitterPostId={socialData.twitterPostId} /> : null,
       className: "md:col-span-1 bg-[url('/blurgradient8.png')] bg-center  bg-cover bg-no-repeat",
       icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
     },
@@ -282,7 +294,7 @@ export default function BentoGridThirdDemo() {
     {
       title: "Follow Us on Instagram",
       description: <span className="text-sm">Stay updated with our latest posts and healthcare tips.</span>,
-      header: <SkeletonTwo />,
+      header: socialData ? <SkeletonTwo instagramPostUrl={socialData.instagramPostUrl} /> : null,
       className: "md:col-span-1 bg-[url('/blurgradient8.png')] bg-center bg-cover bg-no-repeat",
       icon: <IconBrandInstagram className="h-4 w-4 text-neutral-500" />,
     },
