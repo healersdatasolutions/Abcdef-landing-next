@@ -23,8 +23,8 @@ export default function Home() {
       <div className="relative z-20" data-scroll-section>
         <Hero />
       </div>
-      <div className={`${sora.className} min-h-screen max-w-full mx-auto relative z-10 h-full bg-[url('/wavyBg.png')] bg-opacity-100 backdrop:blur-sm text-white overflow-hidden mt-96 md:mt-0 lg:mt-0`} data-scroll-section>
-        <div data-scroll-section className="relative z-10 min-h-screen h-full bg-[url('/noiseBg.png')] bg-opacity-100 backdrop:blur-sm bg-repeat">
+      <div className={`${sora.className} min-h-screen max-w-full mx-auto relative z-10 h-full md:bg-[url('/wavyBg.png')] bg-opacity-100 backdrop:blur-sm text-white overflow-hidden mt-96 md:mt-0 lg:mt-0`} data-scroll-section>
+        <div data-scroll-section className="relative z-10 min-h-screen h-full md:bg-[url('/noiseBg.png')] bg-opacity-100 backdrop:blur-sm bg-repeat">
           <TrustedBy2 />
           <FeatureCardDeck />
           <BentoGridOne />

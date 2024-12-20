@@ -119,7 +119,7 @@ export default function FeatureCardDeck() {
             <img className="w-full rotate-[240deg] opacity-100" src="/gradient.png" width={942} height={942} alt="" />
           </div>
         </div>
-        <div className="relative z-0 space-y-14">
+        <div className="relative z-0">
           {cardData.map((card, index) => (
             <section 
               key={card.id}
@@ -127,7 +127,7 @@ export default function FeatureCardDeck() {
               data-index={index}
               // className="[--i:0] w-full"
               // style={{ '--e': entered } as React.CSSProperties}
-              data-scroll data-scroll-speed="1" data-scroll-target="#features" 
+              data-scroll data-scroll-speed="0.8" data-scroll-target="#features" 
               className="w-full"
             >
               <NeonGradientCard borderSize={2} className={`max-w-6xl mx-auto relative p-1 h-full object-contain bg-opacity-100 backdrop:blur-3xl overflow-hidden transition-transform duration-700 ease-in-out

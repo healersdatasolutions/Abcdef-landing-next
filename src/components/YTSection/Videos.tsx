@@ -14,8 +14,8 @@ interface Video {
 
 const VideoCard = ({ video }: { video: Video; index: number }) => {
   return (
-    <div className="mb-12">
-      <Card className="bg-[url('/gradient8.png')] bg-opacity-100 backdrop:blur-sm bg-center bg-cover overflow-hidden bg-transparent shadow-lg hover:shadow-xl transition-shadow duration-300">
+    <div className="mb-12" >
+      <Card data-scroll data-scroll-speed="0.2" className="bg-[url('/gradient8.png')] bg-opacity-100 backdrop:blur-sm bg-center bg-cover overflow-hidden bg-transparent shadow-lg hover:shadow-xl transition-shadow duration-300">
         <CardContent className="p-0 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-auto md:h-[400px]">
             <div className="p-10 flex justify-center flex-col gap-5">
@@ -66,9 +66,9 @@ export default function VideoComponent() {
       <section className="py-16 lg:py-20 px-4 bg-transparent" id='ytLinks'>
         <div className="max-w-6xl mx-auto">
           <h2 className="mt-36 mb-10 z-10 whitespace-pre-wrap text-center text-3xl sm:text-5xl font-medium tracking-tighter text-black dark:text-white">Latest From Our Creators and Partners</h2>
-          <div className="space-y-12">
+          <div className="space-y-12" data-scroll-section >
             {videos.map((video, index) => (
-              <VideoCard key={video.id} video={video} index={index} />
+              <VideoCard key={video.id} video={video} index={index}  data-scroll data-scroll-speed="1"   />
             ))}
           </div>
         </div>
