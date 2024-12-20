@@ -99,7 +99,7 @@ export default function FeatureCardDeck() {
   }, [isMobile])
 
   return (
-    <div className='py-20 font-[Poppins]'>
+    <div className='py-20 font-[Poppins] ' data-scroll-section>
       <p id="features" className="mt-16 mb-16 z-10 whitespace-pre-wrap text-center text-3xl sm:text-5xl font-medium tracking-tighter text-black dark:text-white">
         The Features Out of the Blue
       </p>
@@ -127,10 +127,11 @@ export default function FeatureCardDeck() {
               data-index={index}
               className="[--i:0] w-full"
               style={{ '--e': entered } as React.CSSProperties}
+              data-scroll data-scroll-speed="2"
             >
               <NeonGradientCard borderSize={2} className={`max-w-6xl mx-auto relative p-1 h-full object-contain bg-opacity-100 backdrop:blur-3xl overflow-hidden transition-transform duration-700 ease-in-out
                 ${index === 0 ? 'z-[30]' : index === 1 ? 'z-[29]' : index === 2 ? 'z-[28]': 'z-[27]'}
-                ${isMobile || entered >= index ? 'translate-y-0' : '-translate-y-[calc(100%*(var(--i)-var(--e)))]'}`}>
+                `}>
                 <div className="md:grid grid-cols-3 py-10 justify-around items-center my-5" style={{
                   boxSizing: 'content-box',
                 }}>
