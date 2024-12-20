@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
+import { LocomotiveScrollProvider } from "@/components/LocomotiveScrollProvider"
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -31,25 +33,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${porterSans.variable}  antialiased `}
+        className={`${geistSans.variable} ${geistMono.variable} ${porterSans.variable} antialiased`}
       >
         <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-
-        {children}
-          </ThemeProvider>
-          <Toaster />
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <LocomotiveScrollProvider>
+            {children}
+          </LocomotiveScrollProvider>
+        </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );
 }
 
-
-
-/// react js  client side rendering
-/// next js is server side rendering
