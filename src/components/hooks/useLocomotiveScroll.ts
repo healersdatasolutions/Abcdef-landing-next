@@ -15,6 +15,7 @@ export const useLocomotiveScroll = () => {
       // Add other options as needed
     })
     
+    
       
 
     return () => {

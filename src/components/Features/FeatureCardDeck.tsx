@@ -66,37 +66,37 @@ const cardData: CardData[] = [
 ]
 
 export default function FeatureCardDeck() {
-  const [entered, setEntered] = useState(0)
-  const sectionRefs = useRef<(HTMLElement | null)[]>([])
-  const isMobile = useIsMobile()
+  // const [entered, setEntered] = useState(0)
+  // const sectionRefs = useRef<(HTMLElement | null)[]>([])
+  // const isMobile = useIsMobile()
 
-  useEffect(() => {
-    if (isMobile) {
-      setEntered(cardData.length) // Set all cards as entered for mobile
-      return
-    }
+  // useEffect(() => {
+  //   if (isMobile) {
+  //     setEntered(cardData.length) // Set all cards as entered for mobile
+  //     return
+  //   }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.getAttribute('data-index'))
-            setEntered(index)
-          }
-        })
-      },
-      { rootMargin: '-30% 0px -70% 0px' }
-    )
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           const index = Number(entry.target.getAttribute('data-index'))
+  //           setEntered(index)
+  //         }
+  //       })
+  //     },
+  //     { rootMargin: '-30% 0px -70% 0px' }
+  //   )
 
-    sectionRefs.current.forEach((ref, index) => {
-      if (ref) {
-        ref.style.setProperty('--i', index.toString())
-        observer.observe(ref)
-      }
-    })
+  //   sectionRefs.current.forEach((ref, index) => {
+  //     if (ref) {
+  //       ref.style.setProperty('--i', index.toString())
+  //       observer.observe(ref)
+  //     }
+  //   })
 
-    return () => observer.disconnect()
-  }, [isMobile])
+  //   return () => observer.disconnect()
+  // }, [isMobile])
 
   return (
     <div className='py-20 font-[Poppins] ' data-scroll-section>
@@ -123,16 +123,17 @@ export default function FeatureCardDeck() {
           {cardData.map((card, index) => (
             <section 
               key={card.id}
-              ref={(el) => { sectionRefs.current[index] = el }}
+              // ref={(el) => { sectionRefs.current[index] = el }}
               data-index={index}
-              className="[--i:0] w-full"
-              style={{ '--e': entered } as React.CSSProperties}
-              data-scroll data-scroll-speed="2"
+              // className="[--i:0] w-full"
+              // style={{ '--e': entered } as React.CSSProperties}
+              data-scroll data-scroll-speed="1" data-scroll-target="#features" 
+              className="w-full"
             >
               <NeonGradientCard borderSize={2} className={`max-w-6xl mx-auto relative p-1 h-full object-contain bg-opacity-100 backdrop:blur-3xl overflow-hidden transition-transform duration-700 ease-in-out
-                ${index === 0 ? 'z-[30]' : index === 1 ? 'z-[29]' : index === 2 ? 'z-[28]': 'z-[27]'}
+                
                 `}>
-                <div className="md:grid grid-cols-3 py-10 justify-around items-center my-5" style={{
+                <div className="md:grid grid-cols-3 py-10 justify-around items-center" style={{
                   boxSizing: 'content-box',
                 }}>
                   <div className="col-span-1 shrink-0 px-6 py-0 sm:py-14 max-md:pb-0 md:pr-0">
