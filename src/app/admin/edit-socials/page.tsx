@@ -26,6 +26,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import { useRouter } from 'next/navigation'
 
 interface Video {
   id: string;
@@ -49,6 +50,10 @@ export default function EditSocialsPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [deleteIndex, setDeleteIndex] = useState<number | null>(null)
   const [errors, setErrors] = useState<{[key: string]: string}>({})
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [string1, setString1] = useState('')
+  const [string2, setString2] = useState('')
+  const router = useRouter()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -157,10 +162,42 @@ export default function EditSocialsPage() {
     setDeleteIndex(null)
   }
 
+  const handleAuth = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (string1 === process.env.STRING_1 && string2 === process.env.STRING_2) {
+      setIsAuthenticated(true)
+    } else {
+      router.push('/')
+    }
+  }
+
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-screen">
         <Loader2 className="h-8 w-8 animate-spin" />
+      </div>
+    )
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="container mx-auto py-10 px-4">
+        <h1 className="text-3xl font-bold mb-8">Authentication Required</h1>
+        <form onSubmit={handleAuth} className="space-y-4">
+          <Input
+            type="password"
+            value={string1}
+            onChange={(e) => setString1(e.target.value)}
+            placeholder="Enter String 1"
+          />
+          <Input
+            type="password"
+            value={string2}
+            onChange={(e) => setString2(e.target.value)}
+            placeholder="Enter String 2"
+          />
+          <Button type="submit">Authenticate</Button>
+        </form>
       </div>
     )
   }
