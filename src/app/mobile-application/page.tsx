@@ -1,80 +1,98 @@
 import React from 'react'
-import Mob from './Graphics/MOBILE'
-import FeatureSection from './Graphics/FeatureSection'
 import Image from 'next/image'
-import NavigationMenuNew from '@/components/Navbar/Navbar';
+import NavigationMenuNew from '@/components/Navbar/Navbar'
+import FeatureSection from './Graphics/FeatureSection'
 
 interface Feature {
   title: string;
   description: string;
   imagePosition: 'left' | 'right';
+  videoUrl: string;
 }
 
 const features: Feature[] = [
   {
-    title: "Real-time Appointment Booking",
-    description: "Book appointments with your healthcare provider instantly, anytime and anywhere. Our intuitive interface makes scheduling easy and convenient.",
-    imagePosition: "right"
+    title: "Real-Time Appointment Booking",
+    description: "Find and schedule appointments with top doctors instantly, with live availability updates.",
+    imagePosition: "right",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
   {
     title: "Secure Medical Records Access",
-    description: "Access your medical records securely from your mobile device. View test results, prescriptions, and doctor's notes with just a few taps.",
-    imagePosition: "left"
+    description: "View and share your medical history securely, ensuring privacy and convenience.",
+    imagePosition: "left",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
   {
-    title: "Telemedicine Consultations",
-    description: "Connect with healthcare professionals through video calls for remote consultations. Get expert medical advice from the comfort of your home.",
-    imagePosition: "right"
+    title: "Emergency Services",
+    description: "Access an emergency button to alert nearby hospitals and ambulances for critical situations.",
+    imagePosition: "right",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
   {
     title: "Medication Reminders",
-    description: "Never miss a dose with our intelligent medication reminder system. Set custom alerts and track your medication schedule effortlessly.",
-    imagePosition: "left"
+    description: "Stay on track with your prescriptions through automated notifications.",
+    imagePosition: "left",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    title: "Real-Time Queue Management",
+    description: "Monitor waiting times at hospitals and clinics to plan your visit efficiently.",
+    imagePosition: "right",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    title: "Personalized Health Tips",
+    description: "Receive AI-powered insights and recommendations based on your health data.",
+    imagePosition: "left",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    title: "Telemedicine Integration",
+    description: "Consult with doctors remotely through video or chat, ensuring healthcare is accessible even from home.",
+    imagePosition: "right",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   }
 ]
 
 export default function MobileApplicationPage(): JSX.Element {
   return (
     <div>
-      {/* <div className='fixed z-50 bg-transparent backdrop-blur-lg w-full'>
-      
-            <Image className=" " src="/HealersHealthcareOfficialLogo 1.png" width={150} height={50} alt="Healers Logo" />
-            </div> */}
-            <NavigationMenuNew />
+      <NavigationMenuNew />
 
-    <main className="bg-black text-white min-h-screen">
-      <div className="relative min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-16">
-        <div className="w-full md:w-1/2 order-1 md:order-1 mt-8 md:mt-0">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Healers Healthcare Mobile Application</h1>
-          <p className="text-lg md:text-xl mb-8 md:mb-0">Experience healthcare at your fingertips with our innovative mobile app.</p>
-        </div>
-        <div className="w-full md:w-1/2 order-2 md:order-2 flex justify-center items-baseline">
-          <div className="hidden  w-full h-full">
-            <Mob />
+      <main className="bg-black text-white min-h-screen">
+        <div className="relative min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-16">
+          <div className="w-full md:w-1/2 order-1 md:order-1 mt-8 md:mt-0">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">Healers Healthcare Mobile Application</h1>
+            <p className="text-lg md:text-xl mb-8 md:mb-0">Experience healthcare at your fingertips with our innovative mobile app.</p>
           </div>
-          <div className=" w-3/4 max-w-x ">
-            <Image 
-              src="/phoneImg2.png" 
-              alt="mobile app" 
-              width={300} 
-              height={600} 
-              layout="responsive"
+          <div className="w-full md:w-1/2 order-2 md:order-2 flex justify-center items-baseline">
+            <div className=" w-3/4 max-w-x ">
+              <Image 
+                src="/phoneImg2.png" 
+                alt="mobile app" 
+                width={300} 
+                height={600} 
+                layout="responsive"
+              />
+            </div>
+          </div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 py-16">
+          {features.map((feature, index) => (
+            <FeatureSection 
+              key={index}
+              title={feature.title}
+              description={feature.description}
+              imagePosition={feature.imagePosition}
+              videoUrl={feature.videoUrl}
             />
-          </div>
+          ))}
         </div>
-      </div>
-      
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        {features.map((feature, index) => (
-          <FeatureSection 
-            key={index}
-            title={feature.title}
-            description={feature.description}
-            imagePosition={feature.imagePosition}
-          />
-        ))}
-      </div>
-    </main>
+
+        
+      </main>
     </div>
   );
 }

@@ -23,7 +23,8 @@ const Footer = () => {
                     <MailIcon className="text-black dark:text-white"/>
                 <p className="flex items-center text-sm font-medium text-dark dark:text-white">
           
-                    @ healershealthcare.in
+                operations@healershealthcare.in
+
                 
                 </p>
               </div>
