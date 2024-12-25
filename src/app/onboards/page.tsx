@@ -4,83 +4,103 @@ import React, { useState } from 'react';
 import { ArrowRight, Grid, List, Phone, ExternalLink, X } from 'lucide-react';
 import Image from 'next/image';
 import NavigationMenuNew from '@/components/Navbar/Navbar';
+import SearchAndFilter from './FillterSearch/SearchAndFilter';
 
 const hospitals = [
   {
     id: 1,
-    name: 'City General Hospital',
-    description: 'A leading healthcare provider in the heart of the city, offering a wide range of medical services and specialties. Known for its state-of-the-art facilities and compassionate care.A leading healthcare provider in the heart of the city, offering a wide range of medical services and specialties. Known for its state-of-the-art facilities and compassionate care.A leading healthcare provider in the heart of the city, offering a wide range of medical services and specialties. Known for its state-of-the-art facilities and compassionate care.A leading healthcare provider in the heart of the city, offering a wide range of medical services and specialties. Known for its state-of-the-art facilities and compassionate care.',
-    image: '/placeholder.svg?height=300&width=400',
-    contact: '+1 (555) 123-4567',
-    website: 'https://citygeneralhospital.com'
+    name: 'Divyaroshni Multi-Speciality Hospital',
+    description: 'Multi-specialty hospital with 24x7 emergency and trauma service. Critical care with ICU, ventilator and dialysis. Specialized operation theaters for all kind of open and laparoscopic surgeries.',
+    image: 'https://www.joonsquare.com/usermanage/image/business/divya-roshni-health-care-prayagraj-3797/divya-roshni-health-care-prayagraj-divya01.jpg',
+    contact: '+91-8081127175',
+    website: 'na',
+    address: '13C/2C Colvin Road Civil lines, Prayagraj Allahabad Allahabad Uttar Pradesh-211001',
+    city: 'Allahabad',
+    doctors: [
+      {
+        name: 'Dr. Saurabh-Pandey',
+        image: 'https://i.postimg.cc/QMMRVqSv/Dr-Saurabh-Pandey.jpg',
+        specialty: 'Pulmonologist'
+      },
+      {
+        name: 'Dr. Yasharth Sharma',
+        image: 'https://i.postimg.cc/XNKQSCk5/Dr-Yasharth-Sharma.jpg',
+        specialty: 'Plastic Surgeon'
+      },
+      {
+        name: 'Dr. S.K yadav',
+        image: 'https://i.postimg.cc/x1XvCJMt/Dr-SK-yadav.jpg',
+        specialty: 'General Surgeon'
+      }
+    ]
   },
   {
     id: 2,
-    name: 'Sunrise Medical Center',
+    name: 'Jeevan Jyoti Hospital',
     description: 'Specializing in pediatric care and womens health, Sunrise Medical Center has been serving the community for over 50 years with cutting-edge treatments and personalized patient care.Specializing in pediatric care and womens health, Sunrise Medical Center has been serving the community for over 50 years with cutting-edge treatments and personalized patient care.Specializing in pediatric care and womens health, Sunrise Medical Center has been serving the community for over 50 years with cutting-edge treatments and personalized patient care.Specializing in pediatric care and womens health, Sunrise Medical Center has been serving the community for over 50 years with cutting-edge treatments and personalized patient care.',
-    image: '/placeholder.svg?height=300&width=400',
-    contact: '+1 (555) 987-6543',
-    website: 'https://sunrisemedical.com'
+    image: 'https://theconsumersfeedback.com/uploads/listing/1714916287.jpg',
+    contact: '+91-532-2417248',
+    website: 'https://jeevanjyotihospital.com/',
+    address: '4162 Bai Ka Bagh, Lowther Road,Pincode - 211003, Prayagraj (Allahabad) UTTAR PRADESH, INDIA',
+    city: 'Prayagraj',
+    doctors: [
+      {
+        name: 'Dr. y',
+        image: '/doctor3.jpg',
+        specialty: 'Pediatrics'
+      }
+    ]
   },
   {
     id: 3,
     name: 'Valley View Hospital',
     description: 'A rural healthcare leader, Valley View Hospital brings advanced medical technologies and specialists to underserved communities, ensuring everyone has access to quality healthcare. rural healthcare leader, Valley View Hospital brings advanced medical technologies and specialists to underserved communities, ensuring everyone has access to quality healthcare. rural healthcare leader, Valley View Hospital brings advanced medical technologies and specialists to underserved communities, ensuring everyone has access to quality healthcare. rural healthcare leader, Valley View Hospital brings advanced medical technologies and specialists to underserved communities, ensuring everyone has access to quality healthcare.',
-    image: '/placeholder.svg?height=300&width=400',
-    contact: '+1 (555) 246-8135',
-    website: 'https://valleyviewhospital.org'
+    image: 'https://content.jdmagicbox.com/comp/allahabad/c9/0532px532.x532.140519195315.y8c9/catalogue/vatsalya-hospital-civil-lines-allahabad-hospitals-b8r7jo2wy1.jpg',
+    contact: '+91 9598050257',
+    website: 'https://www.vatsalyahospital.co.in/',
+    address: '6, 8, Lal Bahadur Shastri Marg, Civil Lines, Prayagraj, Uttar Pradesh 211001',
+    city: 'Prayagraj',
+    doctors: [
+      {
+        name: 'Dr. X',
+        image: '/doctor4.jpg',
+        specialty: 'Family Medicine'
+      }
+    ]
   },
-  {
-    id: 4,
-    name: 'Metro University Medical Center',
-    description: 'As a teaching hospital affiliated with the prestigious Metro University, this center is at the forefront of medical research and innovative treatments, training the next generation of healthcare professionals.As a teaching hospital affiliated with the prestigious Metro University, this center is at the forefront of medical research and innovative treatments, training the next generation of healthcare professionals.As a teaching hospital affiliated with the prestigious Metro University, this center is at the forefront of medical research and innovative treatments, training the next generation of healthcare professionals.As a teaching hospital affiliated with the prestigious Metro University, this center is at the forefront of medical research and innovative treatments, training the next generation of healthcare professionals.As a teaching hospital affiliated with the prestigious Metro University, this center is at the forefront of medical research and innovative treatments, training the next generation of healthcare professionals.',
-    image: '/placeholder.svg?height=300&width=400',
-    contact: '+1 (555) 369-2580',
-    website: 'https://metroumc.edu'
-  },
-  {
-    id: 5,
-    name: 'Valley View Hospital',
-    description: 'A rural healthcare leader, Valley View Hospital brings advanced medical technologies and specialists to underserved communities, ensuring everyone has access to quality healthcare. rural healthcare leader, Valley View Hospital brings advanced medical technologies and specialists to underserved communities, ensuring everyone has access to quality healthcare. rural healthcare leader, Valley View Hospital brings advanced medical technologies and specialists to underserved communities, ensuring everyone has access to quality healthcare. rural healthcare leader, Valley View Hospital brings advanced medical technologies and specialists to underserved communities, ensuring everyone has access to quality healthcare.',
-    image: '/placeholder.svg?height=300&width=400',
-    contact: '+1 (555) 246-8135',
-    website: 'https://valleyviewhospital.org'
-  },
-  {
-    id: 6,
-    name: 'Sunrise Medical Center',
-    description: 'Specializing in pediatric care and womens health, Sunrise Medical Center has been serving the community for over 50 years with cutting-edge treatments and personalized patient care.Specializing in pediatric care and womens health, Sunrise Medical Center has been serving the community for over 50 years with cutting-edge treatments and personalized patient care.Specializing in pediatric care and womens health, Sunrise Medical Center has been serving the community for over 50 years with cutting-edge treatments and personalized patient care.Specializing in pediatric care and womens health, Sunrise Medical Center has been serving the community for over 50 years with cutting-edge treatments and personalized patient care.',
-    image: '/placeholder.svg?height=300&width=400',
-    contact: '+1 (555) 987-6543',
-    website: 'https://sunrisemedical.com'
-  },
-  {
-    id: 7,
-    name: 'City General Hospital',
-    description: 'A leading healthcare provider in the heart of the city, offering a wide range of medical services and specialties. Known for its state-of-the-art facilities and compassionate care.A leading healthcare provider in the heart of the city, offering a wide range of medical services and specialties. Known for its state-of-the-art facilities and compassionate care.A leading healthcare provider in the heart of the city, offering a wide range of medical services and specialties. Known for its state-of-the-art facilities and compassionate care.A leading healthcare provider in the heart of the city, offering a wide range of medical services and specialties. Known for its state-of-the-art facilities and compassionate care.',
-    image: '/placeholder.svg?height=300&width=400',
-    contact: '+1 (555) 123-4567',
-    website: 'https://citygeneralhospital.com'
-  },
+
+  
   // Add more hospitals as needed
 ];
 
 function HospitalOnboardsPage() {
   const [viewMode, setViewMode] = useState('detailed');
   const [selectedHospital, setSelectedHospital] = useState<typeof hospitals[0] | null>(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCity, setSelectedCity] = useState('');
+  const cities = Array.from(new Set(hospitals.map((hospital) => hospital.city)));
 
   const toggleViewMode = (mode: React.SetStateAction<string>) => {
     setViewMode(mode);
     setSelectedHospital(null);
   };
 
-  const openHospitalDetails = (hospital: { id: number; name: string; description: string; image: string; contact: string; website: string }) => {
+  const openHospitalDetails = (hospital: { id: number; name: string; description: string; image: string; contact: string; website: string; 
+    address: string;
+    city: string;
+    doctors: { name: string; image: string; specialty: string; }[];
+   }) => {
     setSelectedHospital(hospital);
   };
 
   const closeHospitalDetails = () => {
     setSelectedHospital(null);
   };
+
+  const filteredHospitals = hospitals.filter((hospital) =>
+    hospital.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+    (selectedCity === '' || hospital.city === selectedCity)
+  );
 
   const metrics = {
     totalHospitals: hospitals.length,
@@ -112,6 +132,14 @@ function HospitalOnboardsPage() {
           ))}
         </div>
         
+        <SearchAndFilter
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          selectedCity={selectedCity}
+          setSelectedCity={setSelectedCity}
+          cities={cities}
+        />
+
         <div className="flex justify-end mb-4">
           <button
             onClick={() => toggleViewMode('detailed')}
@@ -131,22 +159,38 @@ function HospitalOnboardsPage() {
 
         {viewMode === 'detailed' ? (
           <div className="space-y-12">
-            {hospitals.map((hospital) => (
+            {filteredHospitals.map((hospital) => (
               <div key={hospital.id} className="bg-zinc-900 rounded-lg overflow-hidden shadow-lg">
                 <div className="md:grid md:grid-cols-3 md:gap-6">
                   <div className="md:col-span-1">
-                    <img className="h-48 w-full object-cover md:w-48" src={hospital.image} alt={hospital.name} />
+                    {/* <img className="h-48 w-full object-cover md:w-48" src={hospital.image} alt={hospital.name} /> */}
+                    <img className="h-64 w-full object-cover md:h-full md:w-full" src={hospital.image} alt={hospital.name} />
                   </div>
                   <div className="p-8 md:col-span-2">
                     <h2 className="text-2xl font-semibold mb-2">{hospital.name}</h2>
-                    <p className="text-zinc-300 mb-4">{hospital.description}</p>
-                    <div className="flex flex-wrap items-center gap-4">
+                    <p className="text-zinc-300 mb-4 line-clamp-2">{hospital.description}</p>
+                    <div className="flex flex-wrap items-center gap-4 mb-4">
                       <a href={hospital.website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-blue-400 hover:underline">
                         Learn more <ExternalLink size={16} className="ml-1" />
                       </a>
                       <a href={`tel:${hospital.contact}`} className="inline-flex items-center text-green-400 hover:underline">
                         <Phone size={16} className="mr-1" /> {hospital.contact}
                       </a>
+                      <a href={hospital.address} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-yellow-400 hover:underline">
+                      {hospital.address} <ExternalLink size={16} className="ml-1" />
+                      </a>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">Doctors</h3>
+                      <div className="flex flex-wrap gap-4">
+                        {hospital.doctors.map((doctor, index) => (
+                          <div key={index} className="text-center">
+                            <img src={doctor.image} alt={doctor.name} className="w-20 h-20 rounded-full mx-auto mb-2" />
+                            <p className="font-semibold">{doctor.name}</p>
+                            <p className="text-sm text-zinc-400">{doctor.specialty}</p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -154,12 +198,15 @@ function HospitalOnboardsPage() {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {hospitals.map((hospital) => (
+          // <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredHospitals.map((hospital) => (
               <div key={hospital.id} className="bg-zinc-800 rounded-lg overflow-hidden shadow-lg">
-                <img className="h-48 w-full object-cover" src={hospital.image} alt={hospital.name} />
+                {/* <img className="h-48 w-full object-cover" src={hospital.image} alt={hospital.name} /> */}
+                <img className="h-64 w-full object-cover" src={hospital.image} alt={hospital.name} />
                 <div className="p-4">
                   <h2 className="text-xl font-semibold mb-2">{hospital.name}</h2>
+                  <p className="text-zinc-300 mb-4 line-clamp-2">{hospital.description}</p>
                   <button
                     onClick={() => openHospitalDetails(hospital)}
                     className="text-blue-400 hover:underline inline-flex items-center"
@@ -185,13 +232,28 @@ function HospitalOnboardsPage() {
                 </div>
                 <img className="w-full h-64 object-cover rounded-lg mb-4" src={selectedHospital.image} alt={selectedHospital.name} />
                 <p className="text-zinc-300 mb-4">{selectedHospital.description}</p>
-                <div className="flex flex-wrap items-center gap-4">
+                <div className="flex flex-wrap items-center gap-4 mb-4">
                   <a href={selectedHospital.website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-blue-400 hover:underline">
                     Learn more <ExternalLink size={16} className="ml-1" />
                   </a>
                   <a href={`tel:${selectedHospital.contact}`} className="inline-flex items-center text-green-400 hover:underline">
                     <Phone size={16} className="mr-1" /> {selectedHospital.contact}
                   </a>
+                  <a href={selectedHospital.address} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-yellow-400 hover:underline">
+                  {selectedHospital.address} <ExternalLink size={16} className="ml-1" />
+                  </a>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Doctors</h3>
+                  <div className="flex flex-wrap gap-4">
+                    {selectedHospital.doctors.map((doctor, index) => (
+                      <div key={index} className="text-center">
+                        <img src={doctor.image} alt={doctor.name} className="w-20 h-20 rounded-full mx-auto mb-2" />
+                        <p className="font-semibold">{doctor.name}</p>
+                        <p className="text-sm text-zinc-400">{doctor.specialty}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -204,5 +266,4 @@ function HospitalOnboardsPage() {
 }
 
 export default HospitalOnboardsPage;
-
 
