@@ -9,6 +9,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { toast } from "@/components/hooks/use-toast"
 import { PlusCircle, Trash2, Loader2, Eye } from 'lucide-react'
+
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -164,7 +166,7 @@ export default function EditSocialsPage() {
 
   const handleAuth = (e: React.FormEvent) => {
     e.preventDefault()
-    if (string1 === process.env.STRING_1 && string2 === process.env.STRING_2) {
+    if (string1 === process.env.NEXT_PUBLIC_STRING_1 && string2 === process.env.NEXT_PUBLIC_STRING_2) {
       setIsAuthenticated(true)
     } else {
       router.push('/')
