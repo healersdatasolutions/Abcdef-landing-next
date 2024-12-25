@@ -66,40 +66,40 @@ const cardData: CardData[] = [
 ]
 
 export default function FeatureCardDeck() {
-  const [entered, setEntered] = useState(0)
-  const sectionRefs = useRef<(HTMLElement | null)[]>([])
-  const isMobile = useIsMobile()
+  // const [entered, setEntered] = useState(0)
+  // const sectionRefs = useRef<(HTMLElement | null)[]>([])
+  // const isMobile = useIsMobile()
 
-  useEffect(() => {
-    if (isMobile) {
-      setEntered(cardData.length) // Set all cards as entered for mobile
-      return
-    }
+  // useEffect(() => {
+  //   if (isMobile) {
+  //     setEntered(cardData.length) // Set all cards as entered for mobile
+  //     return
+  //   }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.getAttribute('data-index'))
-            setEntered(index)
-          }
-        })
-      },
-      { rootMargin: '-30% 0px -70% 0px' }
-    )
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           const index = Number(entry.target.getAttribute('data-index'))
+  //           setEntered(index)
+  //         }
+  //       })
+  //     },
+  //     { rootMargin: '-30% 0px -70% 0px' }
+  //   )
 
-    sectionRefs.current.forEach((ref, index) => {
-      if (ref) {
-        ref.style.setProperty('--i', index.toString())
-        observer.observe(ref)
-      }
-    })
+  //   sectionRefs.current.forEach((ref, index) => {
+  //     if (ref) {
+  //       ref.style.setProperty('--i', index.toString())
+  //       observer.observe(ref)
+  //     }
+  //   })
 
-    return () => observer.disconnect()
-  }, [isMobile])
+  //   return () => observer.disconnect()
+  // }, [isMobile])
 
   return (
-    <div className='py-20 font-[Poppins]'>
+    <div className='py-20 font-[Poppins] ' data-scroll-section>
       <p id="features" className="mt-16 mb-16 z-10 whitespace-pre-wrap text-center text-3xl sm:text-5xl font-medium tracking-tighter text-black dark:text-white">
         The Features Out of the Blue
       </p>
@@ -119,19 +119,21 @@ export default function FeatureCardDeck() {
             <img className="w-full rotate-[240deg] opacity-100" src="/gradient.png" width={942} height={942} alt="" />
           </div>
         </div>
-        <div className="relative z-0 space-y-14">
+        <div className="relative z-0">
           {cardData.map((card, index) => (
             <section 
               key={card.id}
-              ref={(el) => { sectionRefs.current[index] = el }}
+              // ref={(el) => { sectionRefs.current[index] = el }}
               data-index={index}
-              className="[--i:0] w-full"
-              style={{ '--e': entered } as React.CSSProperties}
+              // className="[--i:0] w-full"
+              // style={{ '--e': entered } as React.CSSProperties}
+              data-scroll data-scroll-speed="0.8" data-scroll-target="#features" 
+              className="w-full"
             >
               <NeonGradientCard borderSize={2} className={`max-w-6xl mx-auto relative p-1 h-full object-contain bg-opacity-100 backdrop:blur-3xl overflow-hidden transition-transform duration-700 ease-in-out
-                ${index === 0 ? 'z-[30]' : index === 1 ? 'z-[29]' : index === 2 ? 'z-[28]': 'z-[27]'}
-                ${isMobile || entered >= index ? 'translate-y-0' : '-translate-y-[calc(100%*(var(--i)-var(--e)))]'}`}>
-                <div className="md:grid grid-cols-3 py-10 justify-around items-center my-5" style={{
+                
+                `}>
+                <div className="md:grid grid-cols-3 py-10 justify-around items-center" style={{
                   boxSizing: 'content-box',
                 }}>
                   <div className="col-span-1 shrink-0 px-6 py-0 sm:py-14 max-md:pb-0 md:pr-0">

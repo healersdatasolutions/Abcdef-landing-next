@@ -79,18 +79,18 @@ export default function BentoGrid2() {
   // const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
 
   return (
-    <div className="pt-20">
+    <div className="pt-20" >
       <p id="aboutUs" className="mt-36 mb-10 z-10 whitespace-pre-wrap text-center text-3xl sm:text-5xl font-medium tracking-tighter text-black dark:text-white">
           Your Healthcare Management Companion
         </p>
 
-    <div className="relative m">
-      <div className="absolute opacity-60 mix-blend-color-dodge pointer-events-none">
-        <div className="absolute -translate-y-[20%] -translate-x-[60%] size-[18.85rem] lg:size-[68.85rem]">
+    <div className="relative "  >
+      <div data-scroll-section className="absolute opacity-60 mix-blend-color-dodge pointer-events-none">
+        <div className="absolute -translate-y-[20%] -translate-x-[60%] size-[18.85rem] lg:size-[68.85rem]"data-scroll data-scroll-speed="0.4">
           <img className="w-full rotate-[100deg] opacity-100" src="/gradient.png" width={942} height={942} alt="" />
         </div>
       </div>
-      <div className="absolute opacity-60 mix-blend-color-dodge pointer-events-none">
+      <div className="absolute opacity-60 mix-blend-color-dodge pointer-events-none"data-scroll data-scroll-speed="0.2">
         <div className="absolute -translate-y-[20%] translate-x-[90%] size-[18.85rem] lg:size-[68.85rem]">
           <img className="w-full rotate-[240deg] opacity-100" src="/gradient.png" width={942} height={942} alt="" />
         </div>
