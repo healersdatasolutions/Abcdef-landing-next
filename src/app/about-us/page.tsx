@@ -1,137 +1,202 @@
+import React from 'react';
+import { Users, Heart, Target, Building2, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import NavigationMenuNew from '@/components/Navbar/Navbar';
 
+function AboutUsPage() {
+  return (
+    <div className="bg-zinc-900 text-white">
+      {/* <div className='fixed z-50 bg-transparent backdrop-blur-lg w-full'>
 
+      <Image className=" " src="/HealersHealthcareOfficialLogo 1.png" width={150} height={50} alt="Healers Logo" />
+      </div> */}
+      <NavigationMenuNew />
+          
+      {/* Hero Section */}
+      <div 
+        className="min-h-[60vh] bg-black flex items-center justify-center"
+        data-scroll
+        data-scroll-speed="-0.2"
+        data-scroll-direction="vertical"
+        data-scroll-position="top"
+        data-scroll-target="#hero"
+      >
+        <div id="hero" className="text-center p-8">
+          {/* <h1 
+            className="text-5xl md:text-7xl font-bold mb-4"
+            data-scroll
+            data-scroll-speed="0.5"
+            data-scroll-direction="vertical"
+          >
+            Healers Healthcare
+          </h1> */}
+         <Image 
 
+// className="text-5xl md:text-7xl font-bold mb-4"
+data-scroll
+data-scroll-speed="0.5"
+data-scroll-direction="vertical"
+          className="sticky -translate-y-28 -mb-5 self-center" src="/HealersHealthcareOfficialLogo 1.png" width={600} height={500} alt="Healers Logo" />
+          
+          <p 
+            className="text-xl md:text-2xl opacity-90 translate-x-20"
+            data-scroll
+            data-scroll-speed="0.3"
+            data-scroll-direction="vertical"
+          >
+            Committed to Excellence in Healthcare
+          </p>
+        </div>
+      </div>
 
-"use client";
-import React from "react";
-import { HeroParallax } from "@/components/ui/hero-parallax";
+      {/* About Us Section */}
+      <section className="py-12 px-4 md:px-8 bg-[#090909]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div 
+              className="h-[300px] bg-gradient-to-tr from-zinc-700 to-zinc-800 rounded-lg"
+              data-scroll
+              data-scroll-speed="1"
+            ></div>
+            <div 
+              data-scroll
+              data-scroll-speed="0.5"
+            >
+              <h2 className="text-3xl font-bold mb-4">About Us</h2>
+              <p className="text-zinc-300 leading-relaxed">
+                At Healers Healthcare, we believe in providing exceptional care that puts our patients first. 
+                With decades of combined experience, our team of dedicated healthcare professionals works 
+                tirelessly to ensure the highest standards of medical care and patient comfort.
+              </p>
+              <a href="#" className="inline-flex items-center mt-4 text-white hover:underline">
+                Learn more <ArrowRight className="ml-2 w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-export default function AboutUsPage() {
-   const products = [
-    {
-      title: "Moonbeam",
-      link: "https://gomoonbeam.com",
-      thumbnail:
-        "https://media.istockphoto.com/id/1410538853/photo/young-man-in-the-public-park.jpg?s=612x612&w=0&k=20&c=EtRJGnNOFPJ2HniBSLWKzsL9Xf7GHinHd5y2Tx3da0E=",
-    },
-    {
-      title: "Cursor",
-      link: "https://cursor.so",
-      thumbnail:
-        "https://d2thvodm3xyo6j.cloudfront.net/media/2021/04/d81733f712331d8a-600x338.jpg",
-    },
-    {
-      title: "Rogue",
-      link: "https://userogue.com",
-      thumbnail:
-        "https://media.istockphoto.com/id/1410538853/photo/young-man-in-the-public-park.jpg?s=612x612&w=0&k=20&c=EtRJGnNOFPJ2HniBSLWKzsL9Xf7GHinHd5y2Tx3da0E=",
-    },
-  
-    {
-      title: "Editorially",
-      link: "https://editorially.org",
-      thumbnail:
-        "https://media.istockphoto.com/id/1299077582/photo/positivity-puts-you-in-a-position-of-power.jpg?s=612x612&w=0&k=20&c=baDuyrwRTscUZzyAqV44hnCq7d6tXUqwf26lJTcAE0A=",
-    },
-    {
-      title: "Editrix AI",
-      link: "https://editrix.ai",
-      thumbnail:
-        "https://img.freepik.com/premium-photo/headshot-young-happy-successful-male-office-worker-businessman-wearing-suit-smiling-camera-with-positive-face-expression-while-posing-against-grey-studio-background-business-people-concept_95891-6895.jpg",
-    },
-    {
-      title: "Pixel Perfect",
-      link: "https://app.pixelperfect.quest",
-      thumbnail:
-        "https://media.istockphoto.com/id/1299077582/photo/positivity-puts-you-in-a-position-of-power.jpg?s=612x612&w=0&k=20&c=baDuyrwRTscUZzyAqV44hnCq7d6tXUqwf26lJTcAE0A=",
-    },
-  
-    {
-      title: "Algochurn",
-      link: "https://algochurn.com",
-      thumbnail:
-        "https://img.freepik.com/premium-photo/headshot-young-happy-successful-male-office-worker-businessman-wearing-suit-smiling-camera-with-positive-face-expression-while-posing-against-grey-studio-background-business-people-concept_95891-6895.jpg",
-    },
-    {
-      title: "Aceternity UI",
-      link: "https://ui.aceternity.com",
-      thumbnail:
-        "https://d2thvodm3xyo6j.cloudfront.net/media/2021/04/d81733f712331d8a-600x338.jpg",
-    },
-    {
-      title: "Tailwind Master Kit",
-      link: "https://tailwindmasterkit.com",
-      thumbnail:
-        "https://media.istockphoto.com/id/1299077582/photo/positivity-puts-you-in-a-position-of-power.jpg?s=612x612&w=0&k=20&c=baDuyrwRTscUZzyAqV44hnCq7d6tXUqwf26lJTcAE0A=",
-    },
-    {
-      title: "SmartBridge",
-      link: "https://smartbridgetech.com",
-      thumbnail:
-        "https://img.freepik.com/premium-photo/headshot-young-happy-successful-male-office-worker-businessman-wearing-suit-smiling-camera-with-positive-face-expression-while-posing-against-grey-studio-background-business-people-concept_95891-6895.jpg",
-    },
-    {
-      title: "Renderwork Studio",
-      link: "https://renderwork.studio",
-      thumbnail:
-        "https://d2thvodm3xyo6j.cloudfront.net/media/2021/04/d81733f712331d8a-600x338.jpg",
-    },
-  
-    {
-      title: "Creme Digital",
-      link: "https://cremedigital.com",
-      thumbnail:
-        "https://img.freepik.com/premium-photo/headshot-young-happy-successful-male-office-worker-businessman-wearing-suit-smiling-camera-with-positive-face-expression-while-posing-against-grey-studio-background-business-people-concept_95891-6895.jpg",
-    },
-    {
-      title: "Golden Bells Academy",
-      link: "https://goldenbellsacademy.com",
-      thumbnail:
-        "https://media.istockphoto.com/id/1299077582/photo/positivity-puts-you-in-a-position-of-power.jpg?s=612x612&w=0&k=20&c=baDuyrwRTscUZzyAqV44hnCq7d6tXUqwf26lJTcAE0A=",
-    },
-    {
-      title: "Invoker Labs",
-      link: "https://invoker.lol",
-      thumbnail:
-        "https://d2thvodm3xyo6j.cloudfront.net/media/2021/04/d81733f712331d8a-600x338.jpg",
-    },
-    {
-      title: "E Free Invoice",
-      link: "https://efreeinvoice.com",
-      thumbnail:
-        "https://media.istockphoto.com/id/1410538853/photo/young-man-in-the-public-park.jpg?s=612x612&w=0&k=20&c=EtRJGnNOFPJ2HniBSLWKzsL9Xf7GHinHd5y2Tx3da0E=",
-    },
-  ];
-  
-  return(
-    <div>
+      {/* Our Story Section */}
+      <section className="py-12 px-4 md:px-8 bg-black">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div 
+              data-scroll
+              data-scroll-speed="0.5"
+              className="order-2 md:order-1"
+            >
+              <h2 className="text-3xl font-bold mb-4">Our Story</h2>
+              <p className="text-zinc-300 leading-relaxed">
+                Founded in 1995, Healers Healthcare began with a simple mission: to revolutionize 
+                patient care through compassion and innovation. What started as a small clinic has 
+                grown into a comprehensive healthcare network, serving thousands of patients annually 
+                while maintaining our commitment to personalized care.
+              </p>
+              <a href="#" className="inline-flex items-center mt-4 text-white hover:underline">
+                Read full story <ArrowRight className="ml-2 w-4 h-4" />
+              </a>
+            </div>
+            <div 
+              className="h-[300px] bg-gradient-to-bl from-zinc-700 to-zinc-800 rounded-lg order-1 md:order-2"
+              data-scroll
+              data-scroll-speed="1"
+            ></div>
+          </div>
+        </div>
+      </section>
 
-      {/* <div className='text-center text-4xl'>AboutUsPage</div> */}
-      <HeroParallax products={products} />
+      {/* Our Mission Section */}
+      <section className="py-12 px-4 md:px-8 bg-[#090909]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div 
+              className="h-[300px] bg-gradient-to-tr from-zinc-700 to-zinc-800 rounded-lg"
+              data-scroll
+              data-scroll-speed="1"
+            ></div>
+            <div
+              data-scroll
+              data-scroll-speed="0.5"
+            >
+              <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
+              <p className="text-zinc-300 leading-relaxed">
+                Our mission is to deliver exceptional healthcare services that improve the quality of life 
+                for our patients and communities. We strive to be at the forefront of medical innovation 
+                while maintaining the human touch that healthcare demands.
+              </p>
+              <a href="#" className="inline-flex items-center mt-4 text-white hover:underline">
+                Discover our impact <ArrowRight className="ml-2 w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <h1 className="
-        text-4xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-100 max-w-6xl text-center mx-auto mt-20 mb-8
-      ">Healers Healthcare
-      </h1>
-      <p className="
-        text-neutral-800 dark:text-neutral-200 max-w-6xl text-base md:text-base font-normal mb-8 text-center mx-auto">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla obcaecati aperiam quidem culpa necessitatibus? Perferendis error qui eveniet ipsam expedita aliquam ut velit rem commodi, asperiores nulla consequuntur cupiditate voluptatem.
-        Praesentium quasi beatae eius doloremque delectus dignissimos incidunt commodi possimus eveniet accusantium, quod est magnam. Atque quos ratione ex expedita saepe eius quidem excepturi modi, sunt officia libero aut molestiae!
-        Distinctio dignissimos amet, id iste dolor adipisci possimus. Cupiditate error facere fugit harum quo eum similique repellat, eaque beatae deleniti rem nostrum sit libero, nihil porro, et reiciendis ipsa quasi.
-        Quod deserunt, tempore nemo sed nesciunt odio totam earum, voluptatem qui, dolores fugit delectus facere nulla temporibus blanditiis libero dignissimos voluptate id illum soluta inventore sapiente voluptatibus! Et, recusandae mollitia!
-        Accusantium quae optio corrupti facere harum esse maiores dolorum quos, reiciendis consequuntur! Ipsam porro perspiciatis nostrum exercitationem saepe quibusdam sint recusandae, voluptate laborum asperiores voluptas odio animi molestias inventore id?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla obcaecati aperiam quidem culpa necessitatibus? Perferendis error qui eveniet ipsam expedita aliquam ut velit rem commodi, asperiores nulla consequuntur cupiditate voluptatem.
-        Praesentium quasi beatae eius doloremque delectus dignissimos incidunt commodi possimus eveniet accusantium, quod est magnam. Atque quos ratione ex expedita saepe eius quidem excepturi modi, sunt officia libero aut molestiae!
-        Distinctio dignissimos amet, id iste dolor adipisci possimus. Cupiditate error facere fugit harum quo eum similique repellat, eaque beatae deleniti rem nostrum sit libero, nihil porro, et reiciendis ipsa quasi.
-        Quod deserunt, tempore nemo sed nesciunt odio totam earum, voluptatem qui, dolores fugit delectus facere nulla temporibus blanditiis libero dignissimos voluptate id illum soluta inventore sapiente voluptatibus! Et, recusandae mollitia!
-        Accusantium quae optio corrupti facere harum esse maiores dolorum quos, reiciendis consequuntur! Ipsam porro perspiciatis nostrum exercitationem saepe quibusdam sint recusandae, voluptate laborum asperiores voluptas odio animi molestias inventore id?
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla obcaecati aperiam quidem culpa necessitatibus? Perferendis error qui eveniet ipsam expedita aliquam ut velit rem commodi, asperiores nulla consequuntur cupiditate voluptatem.
-        Praesentium quasi beatae eius doloremque delectus dignissimos incidunt commodi possimus eveniet accusantium, quod est magnam. Atque quos ratione ex expedita saepe eius quidem excepturi modi, sunt officia libero aut molestiae!
-        Distinctio dignissimos amet, id iste dolor adipisci possimus. Cupiditate error facere fugit harum quo eum similique repellat, eaque beatae deleniti rem nostrum sit libero, nihil porro, et reiciendis ipsa quasi.
-        Quod deserunt, tempore nemo sed nesciunt odio totam earum, voluptatem qui, dolores fugit delectus facere nulla temporibus blanditiis libero dignissimos voluptate id illum soluta inventore sapiente voluptatibus! Et, recusandae mollitia!
-        Accusantium quae optio corrupti facere harum esse maiores dolorum quos, reiciendis consequuntur! Ipsam porro perspiciatis nostrum exercitationem saepe quibusdam sint recusandae, voluptate laborum asperiores voluptas odio animi molestias inventore id?       
-      </p>
-      
+      {/* Values Section */}
+      {/* <section className="py-12 px-4 md:px-8 bg-black">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8">Our Core Values</h2>
+          <div 
+            className="grid md:grid-cols-4 gap-6"
+            data-scroll
+            data-scroll-speed="0.2"
+          >
+            <div className="text-center p-4" data-scroll data-scroll-speed="0.1">
+              <Heart className="w-12 h-12 mx-auto mb-4 text-zinc-300" />
+              <h3 className="text-xl font-semibold mb-2">Compassion</h3>
+              <p className="text-zinc-400">Treating every patient with kindness and empathy</p>
+            </div>
+            <div className="text-center p-4" data-scroll data-scroll-speed="0.2">
+              <Target className="w-12 h-12 mx-auto mb-4 text-zinc-300" />
+              <h3 className="text-xl font-semibold mb-2">Excellence</h3>
+              <p className="text-zinc-400">Striving for the highest standards in healthcare</p>
+            </div>
+            <div className="text-center p-4" data-scroll data-scroll-speed="0.3">
+              <Users className="w-12 h-12 mx-auto mb-4 text-zinc-300" />
+              <h3 className="text-xl font-semibold mb-2">Teamwork</h3>
+              <p className="text-zinc-400">Collaborating to achieve the best outcomes</p>
+            </div>
+            <div className="text-center p-4" data-scroll data-scroll-speed="0.4">
+              <Building2 className="w-12 h-12 mx-auto mb-4 text-zinc-300" />
+              <h3 className="text-xl font-semibold mb-2">Innovation</h3>
+              <p className="text-zinc-400">Embracing new technologies and methods</p>
+            </div>
+          </div>
+        </div>
+      </section> */}
+
+      {/* Meet the Team Section */}
+      <section className="py-12 px-4 md:px-8 mb-20 bg-black">
+        <div className="max-w-7xl mx-auto mb-20">
+          <h2 className="text-3xl font-bold text-center mb-8">Meet the Team</h2>
+          <div 
+            className="grid md:grid-cols-3 lg:grid-cols-4 gap-6"
+            data-scroll
+            data-scroll-speed="0.3"
+          >
+            {[
+              { name: "Dr. Jane Smith", role: "Chief Medical Officer" },
+              { name: "Dr. John Doe", role: "Head of Cardiology" },
+              { name: "Dr. Emily Brown", role: "Lead Surgeon" },
+              { name: "Sarah Johnson", role: "Head Nurse" },
+              { name: "Michael Lee", role: "Director of Patient Care" },
+              { name: "Dr. Lisa Wang", role: "Head of Pediatrics" },
+              { name: "Robert Taylor", role: "Chief of Operations" },
+              { name: "Dr. Amanda Garcia", role: "Head of Oncology" }
+            ].map((member, index) => (
+              <div key={index} className="text-center">
+                <div className="h-[200px] bg-gradient-to-tr from-zinc-700 to-zinc-800 rounded-lg mb-4"></div>
+                <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
+                <p className="text-zinc-400">{member.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </div>
-  )
+  );
 }
+
+export default AboutUsPage;
 
