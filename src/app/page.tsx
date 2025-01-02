@@ -14,6 +14,7 @@ import VideoComponent from "@/components/YTSection/Videos";
 import { Sora } from 'next/font/google';
 import Image from 'next/image';
 import Loading from "./loading";
+import Nft from '@/components/NftCard/Nft';
 const sora = Sora({ subsets: ['latin'] });
 
 function PreloadImages() {
@@ -41,6 +42,7 @@ export default function Home() {
           <FeatureCardDeck />
           <BentoGridOne />
           <BentoGridTwo />
+          <Nft />
           <VideoComponent />
           <HospitalCarousel />
           <MobileAppSection />
